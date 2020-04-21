@@ -8,7 +8,9 @@ public class Player : MonoBehaviour
 
     public Transform shootPosition;
 
-    public float fireRate = 1;
+    public float fireRate;
+
+    private float health = 100;
 
     private float nextFire;
 
@@ -33,5 +35,21 @@ public class Player : MonoBehaviour
         {
             nextFire -= Time.deltaTime;
         }
+    }
+
+    private void DoDamage(int damage)
+    {
+        health-= damage;
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        DamageDealer damageDealer = collision.GetComponent<DamageDealer>();
+
+        if (damageDealer != null)
+            DoDamage(damageDealer.damage);
     }
 }

@@ -5,20 +5,40 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public float health;
+    public GameObject bulletPrefab;
+
+    public Transform shootPosition;
+    
+    public float fireRate = 0.3f;
+    private float nextFire;
+
+    public float health = 100;
     
     // Start is called before the first frame update
     void Start()
     {
-        
+        StartCoroutine(CreateBullets(2, 2)); 
     }
 
-    // Update is called once per frame
-    void Update()
+    IEnumerator CreateBullets(float delay, float rate)
     {
+        //Debug.Log("Create");
+        yield return new WaitForSeconds(delay);
+
+        while (true)
+        { 
+            //Debug.Log("Create bullets");
+            Instantiate(bulletPrefab, shootPosition.position, transform.rotation);
+            nextFire = fireRate;
+
+            if (nextFire > 0)
+            {
+                nextFire -= Time.deltaTime;
+            }
+            yield return new WaitForSeconds(rate);
+        }
         
     }
-
     void DoDamage(float damage)
     {
         health -= damage;
