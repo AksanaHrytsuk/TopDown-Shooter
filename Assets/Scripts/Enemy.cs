@@ -10,14 +10,17 @@ public class Enemy : MonoBehaviour
     public Transform shootPosition;
     
     public float fireRate = 0.3f;
+    
+    public float health = 100;
+    
     private float nextFire;
 
-    public float health = 100;
+    
     
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(CreateBullets(2, 2)); 
+        StartCoroutine(CreateBullets(4, 2)); 
     }
 
     IEnumerator CreateBullets(float delay, float rate)
