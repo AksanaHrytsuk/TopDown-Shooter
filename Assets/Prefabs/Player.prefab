@@ -133,6 +133,7 @@ MonoBehaviour:
     type: 3}
   shootPosition: {fileID: 5738378532670610679}
   fireRate: 0.3
+  health: 100
 --- !u!114 &5738378532606685411
 MonoBehaviour:
   m_ObjectHideFlags: 0

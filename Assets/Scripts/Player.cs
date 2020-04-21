@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
 
     public float fireRate;
 
-    private float health = 100;
+    public float health = 100;
 
     private float nextFire;
 
@@ -42,7 +42,10 @@ public class Player : MonoBehaviour
         health-= damage;
         if (health <= 0)
         {
-            Destroy(gameObject);
+            _animator.SetTrigger("Death");
+            _animator.StopPlayback();
+
+            // Destroy(gameObject);
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)

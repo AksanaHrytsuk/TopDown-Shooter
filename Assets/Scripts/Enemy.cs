@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour
     public GameObject bulletPrefab;
 
     public Transform shootPosition;
+    private Animator _animator;
     
     public float fireRate = 0.3f;
     
@@ -20,6 +21,7 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        _animator = GetComponentInChildren<Animator>();
         StartCoroutine(CreateBullets(4, 2)); 
     }
 
@@ -32,6 +34,7 @@ public class Enemy : MonoBehaviour
         { 
             //Debug.Log("Create bullets");
             Instantiate(bulletPrefab, shootPosition.position, transform.rotation);
+            _animator.SetTrigger("Shoot");
             nextFire = fireRate;
 
             if (nextFire > 0)
@@ -45,9 +48,11 @@ public class Enemy : MonoBehaviour
     void DoDamage(float damage)
     {
         health -= damage;
-        if (health < 0)
+        if (health <= 0)
         {
-            Destroy(gameObject);
+            _animator.SetTrigger("Death");
+            
+            //Destroy(gameObject);
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
