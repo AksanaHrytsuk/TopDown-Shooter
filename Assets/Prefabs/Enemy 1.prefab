@@ -1,35 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &629486572
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 629486573}
-  m_Layer: 11
-  m_Name: ShootPositionE'sBullet
-  m_TagString: Untagged
-  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &629486573
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 629486572}
-  m_LocalRotation: {x: -0, y: -0, z: 0.023694929, w: 0.99971926}
-  m_LocalPosition: {x: -0.16, y: -0.996, z: 0.75556487}
-  m_LocalScale: {x: 0.89745694, y: 0.9995431, z: 1}
-  m_Children: []
-  m_Father: {fileID: 2760113052503723757}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 2.7150002}
 --- !u!1 &2760113052503723761
 GameObject:
   m_ObjectHideFlags: 0
@@ -43,7 +13,6 @@ GameObject:
   - component: {fileID: 2760113052503723759}
   - component: {fileID: 2760113052503723758}
   - component: {fileID: 604448807}
-  - component: {fileID: 111605884}
   m_Layer: 11
   m_Name: Enemy 1
   m_TagString: Untagged
@@ -63,7 +32,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2760113054033478874}
-  - {fileID: 629486573}
+  - {fileID: 5781531368246798030}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -118,22 +87,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 4075604992769970358, guid: e93d8b99006702c4f866193d635c2541,
     type: 3}
-  shootPosition: {fileID: 629486573}
+  shootPosition: {fileID: 0}
   fireRate: 0.3
   health: 100
 --- !u!114 &604448807
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2760113052503723761}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a5b397d5f9e6db5ab57959b2020dc85, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &111605884
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -155,6 +112,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2760113054033478874}
   - component: {fileID: 2760113054033478875}
+  - component: {fileID: 1602362797}
   m_Layer: 11
   m_Name: Man
   m_TagString: Untagged
@@ -226,3 +184,52 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &1602362797
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2760113054033478877}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c64fc86468cdfea57a5961a38f10ce3b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1 &7801242100063642829
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5781531368246798030}
+  m_Layer: 10
+  m_Name: ShootPositionMan
+  m_TagString: Untagged
+  m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5781531368246798030
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7801242100063642829}
+  m_LocalRotation: {x: -0, y: -0, z: 0.5194836, w: 0.8544804}
+  m_LocalPosition: {x: -0.9015244, y: -4.7192345, z: 0.75556487}
+  m_LocalScale: {x: 0.89745694, y: 0.9995431, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2760113052503723757}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 3.8190002}
