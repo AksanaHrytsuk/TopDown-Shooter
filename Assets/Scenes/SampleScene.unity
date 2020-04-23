@@ -336,6 +336,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyCap
       objectReference: {fileID: 0}
+    - target: {fileID: 2760113052503723761, guid: ece145d843abd196c81b0f500995672b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5781531368246798030, guid: ece145d843abd196c81b0f500995672b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -783,11 +788,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Zombie
       objectReference: {fileID: 0}
-    - target: {fileID: 3303031163716796949, guid: ff88554dd39f4a609ae233fa49be8b54,
-        type: 3}
-      propertyPath: m_Name
-      value: Sprite
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff88554dd39f4a609ae233fa49be8b54, type: 3}
 --- !u!1001 &2760113053542036766
@@ -861,6 +861,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 2760113052503723761, guid: ece145d843abd196c81b0f500995672b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5781531368246798030, guid: ece145d843abd196c81b0f500995672b,
         type: 3}
@@ -966,6 +971,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5738378532606685415, guid: 633095515d8cf39eca8a321c09003ccc,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5738378532670610678, guid: 633095515d8cf39eca8a321c09003ccc,
         type: 3}

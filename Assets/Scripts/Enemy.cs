@@ -52,6 +52,13 @@ public class Enemy : MonoBehaviour
         {
             _animator.SetTrigger("Death");
             
+            Destroy(this);
+
+            EnemyMovement enemyMovement = GetComponent<EnemyMovement>();
+            Destroy(enemyMovement);
+
+            Collider2D collider = GetComponent<Collider2D>();
+            Destroy(collider);
             //Destroy(gameObject);
         }
     }
