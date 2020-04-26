@@ -43,9 +43,13 @@ public class Player : MonoBehaviour
         if (health <= 0)
         {
             _animator.SetTrigger("Death");
-            _animator.StopPlayback();
+            Destroy(this);
 
-            // Destroy(gameObject);
+            PlayerMovement playerMovement = GetComponent<PlayerMovement>();
+            Destroy(playerMovement);
+
+            Collider2D collider2D = GetComponent<Collider2D>();
+            Destroy(collider2D);
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)

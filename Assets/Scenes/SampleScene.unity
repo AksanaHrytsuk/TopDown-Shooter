@@ -233,7 +233,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.16, z: -10}
+  m_LocalPosition: {x: 4.71, y: 1.34, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -453,7 +453,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 941161321}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.16, z: -10}
+  m_LocalPosition: {x: 4.71, y: 1.34, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1630130790}
@@ -783,10 +783,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -44.076
       objectReference: {fileID: 0}
+    - target: {fileID: 3303031162797049895, guid: ff88554dd39f4a609ae233fa49be8b54,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 3303031162797049913, guid: ff88554dd39f4a609ae233fa49be8b54,
         type: 3}
       propertyPath: m_Name
       value: Zombie
+      objectReference: {fileID: 0}
+    - target: {fileID: 3303031162797049913, guid: ff88554dd39f4a609ae233fa49be8b54,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff88554dd39f4a609ae233fa49be8b54, type: 3}
@@ -910,12 +920,12 @@ PrefabInstance:
     - target: {fileID: 5738378532606685409, guid: 633095515d8cf39eca8a321c09003ccc,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 4.71
       objectReference: {fileID: 0}
     - target: {fileID: 5738378532606685409, guid: 633095515d8cf39eca8a321c09003ccc,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.16
+      value: 1.34
       objectReference: {fileID: 0}
     - target: {fileID: 5738378532606685409, guid: 633095515d8cf39eca8a321c09003ccc,
         type: 3}
@@ -1055,6 +1065,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Bullet
+      objectReference: {fileID: 0}
+    - target: {fileID: 4075604992769970358, guid: e93d8b99006702c4f866193d635c2541,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e93d8b99006702c4f866193d635c2541, type: 3}
