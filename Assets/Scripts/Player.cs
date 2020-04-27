@@ -12,12 +12,19 @@ public class Player : MonoBehaviour
 
     public float health = 100;
 
+    public float delay;
+
+    public float rate;
+
     private float nextFire;
 
     private Animator _animator;
+
+    private Collider2D _collider2D;
     // Start is called before the first frame update
     void Start()
     {
+        _collider2D = GetComponent<Collider2D>();
         _animator = GetComponentInChildren<Animator>();
     }
 
@@ -50,13 +57,45 @@ public class Player : MonoBehaviour
 
             Collider2D collider2D = GetComponent<Collider2D>();
             Destroy(collider2D);
+
+            this.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         }
     }
+
     private void OnTriggerEnter2D(Collider2D collision)
+    {
+        StartCoroutine(DoDamageInTime(1, 1, collision));
+        // if (this.GetComponent<Collider2D>().IsTouching(collision.GetComponent<Collider2D>()))
+        // {
+        //     DamageDealer damageDealer = collision.GetComponent<DamageDealer>();
+        //
+        //     if (damageDealer != null)
+        //         DoDamage(damageDealer.damage);
+        // }
+    }
+
+    IEnumerator DoDamageInTime(float delay, float rate, Collider2D collision)
+    {
+        yield return new WaitForSeconds(delay);
+
+        while (CheckIfTouching(collision))
+        {
+            GetDamage(collision);
+            yield return new WaitForSeconds(rate);
+        }
+    }
+
+    bool CheckIfTouching(Collider2D collision)
+    {
+        return _collider2D.IsTouching(collision);
+    }
+    void GetDamage(Collider2D collision)
     {
         DamageDealer damageDealer = collision.GetComponent<DamageDealer>();
 
         if (damageDealer != null)
+        {
             DoDamage(damageDealer.damage);
+        }
     }
 }
