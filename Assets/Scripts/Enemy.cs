@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour
     public GameObject bulletPrefab;
 
     public Transform shootPosition;
+   
     private Animator _animator;
     
     public float fireRate = 0.3f;
