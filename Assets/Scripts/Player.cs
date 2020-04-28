@@ -4,23 +4,20 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    [Header("")]
     public GameObject bulletPrefab;
-
     public Transform shootPosition;
 
+    [Header("Config parameters")]
     public float fireRate;
-
-    public float health = 100;
-
+    public float health;
     public float delay;
-
     public float rate;
 
     private float nextFire;
-
     private Animator _animator;
-
     private Collider2D _collider2D;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -44,7 +41,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void DoDamage(int damage)
+    public void DoDamage(int damage)
     {
         health-= damage;
         if (health <= 0)
@@ -64,7 +61,7 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        StartCoroutine(DoDamageInTime(1, 1, collision));
+        StartCoroutine(DoDamageInTime(delay, rate, collision));
         // if (this.GetComponent<Collider2D>().IsTouching(collision.GetComponent<Collider2D>()))
         // {
         //     DamageDealer damageDealer = collision.GetComponent<DamageDealer>();

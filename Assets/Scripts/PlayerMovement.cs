@@ -7,7 +7,6 @@ public class PlayerMovement : MonoBehaviour
     public float speed;
 
     private Rigidbody2D _rigidbody2D;
-
     private Animator _animator;
     
     // Start is called before the first frame update
