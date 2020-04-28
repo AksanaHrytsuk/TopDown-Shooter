@@ -65,8 +65,9 @@
      <Compile Include="Assets\Scripts\ExplosiveBarrel.cs" />
      <Compile Include="Assets\Scripts\Player.cs" />
      <Compile Include="Assets\Scripts\PlayerMovement.cs" />
-     <Compile Include="Assets\Scripts\Zombie.cs" />
-     <Compile Include="Assets\Scripts\ZombieMovement.cs" />
+     <Compile Include="Assets\Scripts\ZombieScripts\Zombie.cs" />
+     <Compile Include="Assets\Scripts\ZombieScripts\ZombieAnimationHelper.cs" />
+     <Compile Include="Assets\Scripts\ZombieScripts\ZombieMovement.cs" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>/home/oksana/Документы/TopDown Shooter/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>
