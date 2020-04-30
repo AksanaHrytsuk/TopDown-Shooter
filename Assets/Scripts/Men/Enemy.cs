@@ -6,42 +6,39 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public GameObject bulletPrefab;
-
     public Transform shootPosition;
    
-    private Animator _animator;
-    
-    public float fireRate = 0.3f;
-    
-    public float health = 100;
+    public float fireRate;
+    public float health;
+    public float delay;
+    public float rate;
     
     private float nextFire;
+   
+    private Animator _animator;
 
-    
     
     // Start is called before the first frame update
     void Start()
     {
         _animator = GetComponentInChildren<Animator>();
-        StartCoroutine(CreateBullets(4, 2)); 
+        StartCoroutine(CreateBullets(delay, rate)); 
     }
 
     IEnumerator CreateBullets(float delay, float rate)
     {
-        //Debug.Log("Create");
         yield return new WaitForSeconds(delay);
 
         while (true)
         { 
-            //Debug.Log("Create bullets");
             Instantiate(bulletPrefab, shootPosition.position, transform.rotation);
             _animator.SetTrigger("Shoot");
-            nextFire = fireRate;
-
-            if (nextFire > 0)
-            {
-                nextFire -= Time.deltaTime;
-            }
+            // nextFire = fireRate;
+            //
+            // if (nextFire > 0)
+            // {
+            //     nextFire -= Time.deltaTime;
+            // }
             yield return new WaitForSeconds(rate);
         }
         

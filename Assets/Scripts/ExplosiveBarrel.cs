@@ -25,7 +25,6 @@ public class ExplosiveBarrel : MonoBehaviour
 
     public void DestroyCharacters()
     {
-        // Destroy(gameObject);
         Debug.Log("Here1");
         if (explosive)
         {
@@ -44,6 +43,7 @@ public class ExplosiveBarrel : MonoBehaviour
                 }
 
                 // Zombie block = objectI.gameObject.GetComponent<Zombie>();
+                
                 Player _player = objectI.gameObject.GetComponent<Player>();
                 if (_player == null)
                 {

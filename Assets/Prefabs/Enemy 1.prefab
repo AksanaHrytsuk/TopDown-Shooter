@@ -90,6 +90,8 @@ MonoBehaviour:
   shootPosition: {fileID: 0}
   fireRate: 0.3
   health: 100
+  delay: 1
+  rate: 1
 --- !u!114 &604448807
 MonoBehaviour:
   m_ObjectHideFlags: 0

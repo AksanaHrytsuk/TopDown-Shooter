@@ -11,14 +11,15 @@ public class Zombie : MonoBehaviour
     public float loseDistance;
 
     [Header("Attack config")]
-    public float attackRate = 2;
-    public int damage = 10;
+    public float attackRate;
+    public int damage;
 
     private ZombieMovement _zombieMovement;
     private Animator _animator;
     private Rigidbody2D _rigidbody2D;
 
     private float nextAttack;
+    
     enum ZombieStates
     {
         Stand,

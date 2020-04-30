@@ -34,14 +34,13 @@ public class Player : MonoBehaviour
             nextFire = fireRate;
             _animator.SetTrigger("Shoot");
         }
-
         if (nextFire > 0)
         {
             nextFire -= Time.deltaTime;
         }
     }
 
-    public void DoDamage(int damage)
+    public void DoDamage(int damage )
     {
         health-= damage;
         if (health <= 0)
