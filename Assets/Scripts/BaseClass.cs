@@ -35,26 +35,9 @@ public abstract class BaseClass : MonoBehaviour
     {
     }
 
-    public virtual void DoDamage(System.Type type)
+    public virtual void DoDamage(BaseClass obj)
     {
-        var obj = GameObject.FindObjectOfType(type);
         obj.GetDamage(damage);
-        // if (collision != null)
-        // {
-        //     if (collision.CompareTag("Player"))
-        //     {
-        //         FindObjectOfType<Player>().GetDamage(damage);
-        //     }
-        //
-        //     if (collision.CompareTag("Zombie"))
-        //     {
-        //         FindObjectOfType<Zombie>().GetDamage(damage);
-        //     }
-        //     if (collision.CompareTag("Barrel"))
-        //     {
-        //         FindObjectOfType<Barrel>().GetDamage(damage);
-        //     }
-        // }
     }
 
     public virtual void Move()
