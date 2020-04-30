@@ -91,7 +91,7 @@ public class Zombie : MonoBehaviour
                     nextAttack -= Time.fixedDeltaTime;
                     if (nextAttack <= 0)
                     {
-                        _animator.SetTrigger("Attack");
+                        _animator.SetTrigger("Shoot");
 
                         nextAttack = attackRate;
                     }
