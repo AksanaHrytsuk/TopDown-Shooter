@@ -39,6 +39,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Map
+    uniqueID: 3196564941
+    locked: 0
   - name: Bullet
     uniqueID: 3700011629
     locked: 0

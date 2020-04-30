@@ -136,7 +136,7 @@ public class Zombie : MonoBehaviour
         }
     }
 
-    private void OnDrawGizmos()
+    private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.blue;
         var position = transform.position;

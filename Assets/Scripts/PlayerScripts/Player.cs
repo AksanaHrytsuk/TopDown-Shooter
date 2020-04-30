@@ -82,8 +82,9 @@ public class Player : MonoBehaviour
     }
 
     bool CheckIfTouching(Collider2D collision)
+
     {
-        return _collider2D.IsTouching(collision);
+        return false; //_collider2D.IsTouching(collision);
     }
     void GetDamage(Collider2D collision)
     {
