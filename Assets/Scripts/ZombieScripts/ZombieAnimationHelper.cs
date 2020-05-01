@@ -7,7 +7,7 @@ public class ZombieAnimationHelper : MonoBehaviour
     private Zombie _zombie;
     void Attack()
     {
-        _zombie.DoDamToPlayer();
+       // _zombie.DoDamToPlayer();
     }
 
     // Start is called before the first frame update

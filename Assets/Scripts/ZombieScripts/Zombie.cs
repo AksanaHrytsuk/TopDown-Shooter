@@ -1,22 +1,9 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class Zombie : MonoBehaviour
+public class Zombie : EnemyMovement
 {
-    [Header("AI config")]
-    public float followDistance;
-    public float attackDistance;
-    public float loseDistance;
-
     [Header("Attack config")]
     public float attackRate;
-    public int damage;
-
-    private ZombieMovement _zombieMovement;
-    private Animator _animator;
-    private Rigidbody2D _rigidbody2D;
 
     private float nextAttack;
     
@@ -29,35 +16,23 @@ public class Zombie : MonoBehaviour
 
     private ZombieStates activeState;
 
-    private Player _player;
-    
     // Start is called before the first frame update
-    void Start()
+    public override void StartAdditional()
     {
-        _player = FindObjectOfType<Player>();
-
-        _rigidbody2D = GetComponent<Rigidbody2D>();
-
-        _animator = GetComponentInChildren<Animator>();
-
-        _zombieMovement = GetComponent<ZombieMovement>();
-        
         ChangeState(ZombieStates.Stand); // состояние зомби при старте игры stand(стоит на месте)
     }
 
-    // Update is called once per frame
-    void FixedUpdate()
+    public override void FUpdate()
     {
         UpdateState();
-        
-        _animator.SetFloat("Speed", _rigidbody2D.velocity.magnitude);
+        GetAnimator().SetFloat("Speed", GetRig().velocity.magnitude);
     }
 
     void UpdateState()
     {
-        if (_player != null)
+        if (GetPlayer() != null)
         {
-            float distance = Vector3.Distance(transform.position, _player.transform.position); // дистанция от зомби к игроку
+            float distance = Vector3.Distance(transform.position, GetPlayer().transform.position); // дистанция от зомби к игроку
 
 
             switch (activeState)
@@ -79,7 +54,6 @@ public class Zombie : MonoBehaviour
                     {
                         ChangeState(ZombieStates.Stand);
                     }
-
                     Rotate();
                     break;
                 case ZombieStates.Attack: // если activeState == ZombieStates.Attack , зомби движется в направлении игрока (Rotate()) И
@@ -92,11 +66,11 @@ public class Zombie : MonoBehaviour
                     nextAttack -= Time.fixedDeltaTime;
                     if (nextAttack <= 0)
                     {
-                        _animator.SetTrigger("Shoot");
+                        GetAnimator().SetTrigger("Shoot");
 
                         nextAttack = attackRate;
                     }
-                    // _animator.SetTrigger("Shoot"); // включать триггер Шот(Аттака) - проигрывается анимация атаки
+                    GetAnimator().SetTrigger("Shoot"); // включать триггер Шот(Аттака) - проигрывается анимация атаки
                     break;
             }
         } 
@@ -109,31 +83,17 @@ public class Zombie : MonoBehaviour
         switch (activeState) 
         {
             case ZombieStates.Stand: // если активный шаг == Стэнд, то отключить движение зомби 
-                _zombieMovement.enabled = false;
-                _zombieMovement.StopMovement();
+                SetDoMove(false);
+                StopMovement();
                 break;
             case ZombieStates.Move: // если активный шаг == Мув, то включить движение зомби 
-                _zombieMovement.enabled = true;
+                SetDoMove(true);
                 break;
             case ZombieStates.Attack: // если активный шаг == Аттак, то отключить движение зомби 
-                _zombieMovement.enabled = false;
-                _zombieMovement.StopMovement();
+                SetDoMove(false);
+                StopMovement();
                 break;
         } 
-    }
-
-    void Rotate()
-    {
-        Vector2 direction =  _player.transform.position - transform.position;
-        transform.up = -direction;
-    }
-
-   public void DoDamToPlayer()
-    {
-        if (_player != null)
-        {
-            // _player.DoDamage(damage);
-        }
     }
 
     private void OnDrawGizmos()

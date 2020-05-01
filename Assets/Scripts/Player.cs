@@ -21,8 +21,11 @@ public class Player : BaseClass
     
     public override void Rotate()
     {
-        Vector3 mouseWorldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Vector2 direction = transform.position - mouseWorldPosition ;
-        transform.up = direction;
+        if (health > 0)
+        {
+            Vector3 mouseWorldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector2 direction = transform.position - mouseWorldPosition;
+            transform.up = direction;
+        }
     }
 }

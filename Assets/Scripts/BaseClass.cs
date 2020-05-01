@@ -12,15 +12,15 @@ public class BaseClass : MonoBehaviour
     public float damage;
 
 
-    // private Player _player;
+    private Player _player;
     private Rigidbody2D _rigidbody2D;
     private Collider2D _collider2D;
     private Animator _animator;
     
-    // public Player GetPlayer()
-    // {
-    //     return _player;
-    // }
+    public Player GetPlayer()
+    {
+        return _player;
+    }
 
     public Collider2D GetCollider()
     {
@@ -79,14 +79,14 @@ public class BaseClass : MonoBehaviour
 
     private void Awake()
     {
-        
+        _rigidbody2D = GetComponent<Rigidbody2D>();
     }
 
     // Start is called before the first frame update
     void Start()
     {
+        _player = FindObjectOfType<Player>();
         _animator = GetComponentInChildren<Animator>();
-        _rigidbody2D = GetComponent<Rigidbody2D>();
         _collider2D = GetComponent<Collider2D>();
         StartAdditional();
     }

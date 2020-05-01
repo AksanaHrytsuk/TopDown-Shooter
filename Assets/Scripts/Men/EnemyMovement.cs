@@ -1,29 +1,62 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyMovement : MonoBehaviour
+public class EnemyMovement : BaseClass
 {
-    private Player _player;
-  
-    // Start is called before the first frame update
-    void Start()
+    [Header("AI config")]
+    public float followDistance;
+    public float attackDistance;
+    public float loseDistance;
+    private bool _doMove;
+
+    public bool GetDoMove()
     {
-       _player = FindObjectOfType<Player>();
+        return _doMove;
     }
-    
-    // Update is called once per frame
-    void Update()
+
+    public void SetDoMove(bool b)
     {
+        _doMove = b;
+    }
+    void FixedUpdate()
+    {
+        Move();
         Rotate();
+        FUpdate();
+    }
+
+    public virtual void FUpdate()
+    {
+    }
+
+
+    public override void Move()
+    {    
+        if (GetPlayer() != null && _doMove )
+        {
+            Vector2 direction = GetPlayer().transform.position - transform.position; // желаемое - текущее
+
+            GetRig().velocity = direction.normalized * speed;
+        }
+        else
+        {
+            GetRig().velocity = Vector2.zero;
+        }
+    }
+
+    public override void Rotate()
+    {
+        if (GetPlayer() != null)
+        {
+            Vector2 direction = GetPlayer().transform.position - transform.position;
+            transform.up = -direction;
+        }
     }
     
-    private void Rotate()
+    public void StopMovement()
     {
-        if (_player != null)
-        {
-            Vector2 direction = transform.position - _player.transform.position;
-            transform.up = direction;
-        }
+        GetRig().velocity = Vector2.zero;
     }
 }
