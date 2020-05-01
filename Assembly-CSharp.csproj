@@ -62,8 +62,9 @@
      <Compile Include="Assets\Scripts\Men\Enemy.cs" />
      <Compile Include="Assets\Scripts\Men\EnemyMovement.cs" />
      <Compile Include="Assets\Scripts\Player.cs" />
-     <Compile Include="Assets\Scripts\PlayerScripts\Player.cs" />
+     <Compile Include="Assets\Scripts\PlayerScripts\Player1.cs" />
      <Compile Include="Assets\Scripts\PlayerScripts\PlayerMovement.cs" />
+     <Compile Include="Assets\Scripts\Weapon.cs" />
      <Compile Include="Assets\Scripts\ZombieScripts\Zombie.cs" />
      <Compile Include="Assets\Scripts\ZombieScripts\ZombieAnimationHelper.cs" />
      <Compile Include="Assets\Scripts\ZombieScripts\ZombieMovement.cs" />

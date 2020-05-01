@@ -11,11 +11,10 @@ GameObject:
   - component: {fileID: 4944751148076805654}
   - component: {fileID: 4944751148076805649}
   - component: {fileID: 2699524771666624273}
-  - component: {fileID: 6999961230019743582}
   - component: {fileID: 4944751148076805648}
   - component: {fileID: 4944751148076805651}
   m_Layer: 8
-  m_Name: Bullet
+  m_Name: PlayerBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -97,20 +96,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1c44d72875e467488aa7f963ec708f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 9999
   speed: 20
---- !u!114 &6999961230019743582
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4944751148076805650}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c6562966dfcf0a3489f316ace1874493, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 10
+  damage: 5
 --- !u!61 &4944751148076805648
 BoxCollider2D:
   m_ObjectHideFlags: 0

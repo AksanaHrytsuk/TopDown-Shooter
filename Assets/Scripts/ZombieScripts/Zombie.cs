@@ -96,7 +96,7 @@ public class Zombie : MonoBehaviour
 
                         nextAttack = attackRate;
                     }
-                    _animator.SetTrigger("Shoot"); // включать триггер Шот(Аттака) - проигрывается анимация атаки
+                    // _animator.SetTrigger("Shoot"); // включать триггер Шот(Аттака) - проигрывается анимация атаки
                     break;
             }
         } 
@@ -132,7 +132,7 @@ public class Zombie : MonoBehaviour
     {
         if (_player != null)
         {
-            _player.DoDamage(damage);
+            // _player.DoDamage(damage);
         }
     }
 

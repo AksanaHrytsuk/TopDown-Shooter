@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &827232388
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 827232389}
+  m_Layer: 11
+  m_Name: ShootPositionMan
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &827232389
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 827232388}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2760113052503723757}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2760113052503723761
 GameObject:
   m_ObjectHideFlags: 0
@@ -32,7 +62,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2760113054033478874}
-  - {fileID: 5781531368246798030}
+  - {fileID: 827232389}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -85,11 +115,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b52371df00df353cd9e1f6db3408ed6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 100
+  speed: 0
+  damage: 0
   bulletPrefab: {fileID: 4075604992769970358, guid: e93d8b99006702c4f866193d635c2541,
     type: 3}
-  shootPosition: {fileID: 0}
+  shootPosition: {fileID: 827232389}
   fireRate: 0.3
-  health: 100
   delay: 1
   rate: 1
 --- !u!114 &604448807
@@ -114,7 +146,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2760113054033478874}
   - component: {fileID: 2760113054033478875}
-  - component: {fileID: 1602362797}
+  - component: {fileID: 1965091739}
   m_Layer: 11
   m_Name: Man
   m_TagString: Untagged
@@ -130,7 +162,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2760113054033478877}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.03, y: -1.2, z: 0}
+  m_LocalPosition: {x: -0.13, y: -1.18, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2760113052503723757}
@@ -186,7 +218,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &1602362797
+--- !u!95 &1965091739
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0
@@ -205,33 +237,3 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!1 &7801242100063642829
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5781531368246798030}
-  m_Layer: 10
-  m_Name: ShootPositionMan
-  m_TagString: Untagged
-  m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &5781531368246798030
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7801242100063642829}
-  m_LocalRotation: {x: -0, y: -0, z: 0.5194836, w: 0.8544804}
-  m_LocalPosition: {x: -0.9015244, y: -4.7192345, z: 0.75556487}
-  m_LocalScale: {x: 0.89745694, y: 0.9995431, z: 1}
-  m_Children: []
-  m_Father: {fileID: 2760113052503723757}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 3.8190002}

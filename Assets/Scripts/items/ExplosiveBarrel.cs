@@ -51,7 +51,7 @@ public class ExplosiveBarrel : MonoBehaviour
                 }
                 else
                 {
-                    _player.DoDamage(20);
+                    // _player.DoDamage(20);
                 }
 
             }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Player1 : MonoBehaviour
 {
-    [Header("")]
+    [Header("Elements UI")]
     public GameObject bulletPrefab;
     public Transform shootPosition;
 
@@ -14,7 +14,7 @@ public class Player1 : MonoBehaviour
     public float delay;
     public float rate;
 
-    private float nextFire;
+    private float _nextFire;
     private Animator _animator;
     private Collider2D _collider2D;
     
@@ -28,15 +28,15 @@ public class Player1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Fire1") && nextFire <= 0)
+        if (Input.GetButtonDown("Fire1") && _nextFire <= 0)
         {
             Instantiate(bulletPrefab, shootPosition.position, transform.rotation);
-            nextFire = fireRate;
+            _nextFire = fireRate;
             _animator.SetTrigger("Shoot");
         }
-        if (nextFire > 0)
+        if (_nextFire > 0)
         {
-            nextFire -= Time.deltaTime;
+            _nextFire -= Time.deltaTime;
         }
     }
 

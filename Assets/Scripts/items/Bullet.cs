@@ -2,17 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class Bullet : BaseClass
 {
-    public float speed;
-
-    Rigidbody2D rb;
-
     // Start is called before the first frame update
-    void Start()
+    public override void StartAdditional()
     {
-        rb = GetComponent<Rigidbody2D>();
-        rb.velocity = -transform.up * speed;
+        GetRig().velocity = -transform.up * speed;
     }
 
     private void OnBecameInvisible()
@@ -22,7 +17,6 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        
         Destroy(gameObject);
     }
 
