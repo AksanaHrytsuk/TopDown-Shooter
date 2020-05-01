@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class Weapon : MonoBehaviour
@@ -12,8 +13,23 @@ public class Weapon : MonoBehaviour
     public float fireRate;
    
     private float _nextFire;
-
     private Animator _animator;
+
+    public float GetNextFire()
+    {
+        return _nextFire;
+    }
+
+    public void SetNextFire(float number)
+    {
+        _nextFire = number;
+    }
+    
+    public Animator GetAnimator()
+    {
+        return _animator;
+    }
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -26,9 +42,9 @@ public class Weapon : MonoBehaviour
         Shoot();
     }
 
-    public void Shoot()
+    public  void Shoot()
     {
-        if (Input.GetButton("Fire1") && _nextFire <= 0)
+        if (ShootPossibility())
         {
             Instantiate(bulletPrefab, shootPosition.position, transform.rotation);
             _nextFire = fireRate;
@@ -38,5 +54,10 @@ public class Weapon : MonoBehaviour
         {
             _nextFire -= Time.deltaTime;
         }
+    }
+
+    public virtual bool ShootPossibility()
+    {
+        return (Input.GetButton("Fire1") && _nextFire <= 0);
     }
 }

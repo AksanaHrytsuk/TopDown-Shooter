@@ -37,9 +37,9 @@ public class BaseClass : MonoBehaviour
         return _animator;
     }
 
-    public virtual void GetDamage(float getdamage)
+    public virtual void GetDamage(float getDamage)
     {
-        health = health - getdamage;
+        health -= getDamage;
         if (health <= 0)
         {
             Death();
@@ -53,13 +53,20 @@ public class BaseClass : MonoBehaviour
         Destroy(GetCollider());
         GetRig().velocity = Vector2.zero;
     }
+    // при соприкосновении объектов вызывает метод, наносящий урон у поставщика урона
+    // @param collision - объект, который наносит урон 
     private void OnTriggerEnter2D(Collider2D collision)
     { 
         DoDamage(collision.GetComponent<BaseClass>());
     }
-    public virtual void DoDamage(BaseClass obj)
+    // заставляет получить урон
+    // @parameter damageDealler - объект, который наносит урон
+    public virtual void DoDamage(BaseClass damageDealler)
     {
-        GetDamage(obj.damage);
+        if (damageDealler.damage != null)
+        {
+            GetDamage(damageDealler.damage);
+        }
     }
 
     public virtual void Move()
