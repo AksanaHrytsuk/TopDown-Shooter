@@ -20,7 +20,10 @@ public class Bullet : BaseClass
     private void OnTriggerEnter2D(Collider2D collision)
     {
         BaseClass damageOwner = collision.GetComponent<BaseClass>();
-        damageOwner.GetDamage(damage);
+        if (damageOwner != null)
+        {
+            damageOwner.GetDamage(damage);
+        }
         Destroy(gameObject);
     }
 

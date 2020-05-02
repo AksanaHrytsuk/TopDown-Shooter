@@ -2,7 +2,8 @@
 
 public class Player : BaseClass
 {
-    // Update is called once per frame
+    public float maxHealth;
+
     void Update()
     {
         Move();
