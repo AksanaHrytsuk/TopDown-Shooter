@@ -31,18 +31,19 @@ public class EnemyMovement : BaseClass
     {
     }
 
-
+    private Vector2 Direction()
+    {
+        return GetPlayer().transform.position - transform.position; // желаемое - текущее 
+    }
     public override void Move()
     {    
         if (GetPlayer() != null && _doMove )
         {
-            Vector2 direction = GetPlayer().transform.position - transform.position; // желаемое - текущее
-
-            GetRig().velocity = direction.normalized * speed;
+            GetRig().velocity = Direction().normalized * speed;
         }
         else
         {
-            GetRig().velocity = Vector2.zero;
+            StopMovement();
         }
     }
 
@@ -50,13 +51,15 @@ public class EnemyMovement : BaseClass
     {
         if (GetPlayer() != null)
         {
-            Vector2 direction = GetPlayer().transform.position - transform.position;
-            transform.up = -direction;
+            transform.up = -Direction();
         }
     }
     
     public void StopMovement()
     {
-        GetRig().velocity = Vector2.zero;
+        if (GetRig() != null)
+        {
+            GetRig().velocity = Vector2.zero;
+        }
     }
 }

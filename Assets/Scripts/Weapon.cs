@@ -14,10 +14,21 @@ public class Weapon : MonoBehaviour
    
     private float _nextFire;
     private Animator _animator;
+    private bool _canShoot = true;
 
     public float GetNextFire()
     {
         return _nextFire;
+    }
+
+    public bool GetCanShoot()
+    {
+        return _canShoot;
+    }
+
+    public void SetCanShoot(bool canShoot)
+    { 
+        _canShoot = canShoot;
     }
 
     public void SetNextFire(float number)
@@ -58,6 +69,6 @@ public class Weapon : MonoBehaviour
 
     public virtual bool ShootPossibility()
     {
-        return (Input.GetButton("Fire1") && _nextFire <= 0);
+        return (Input.GetButton("Fire1") && _nextFire <= 0 && _canShoot);
     }
 }

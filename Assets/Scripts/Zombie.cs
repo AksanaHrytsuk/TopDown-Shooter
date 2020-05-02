@@ -25,7 +25,10 @@ public class Zombie : EnemyMovement
     public override void FUpdate()
     {
         UpdateState();
-        GetAnimator().SetFloat("Speed", GetRig().velocity.magnitude);
+        if (GetRig() != null)
+        {
+            GetAnimator().SetFloat("Speed", GetRig().velocity.magnitude);
+        }
     }
 
     void UpdateState()
@@ -44,8 +47,7 @@ public class Zombie : EnemyMovement
                     }
 
                     break;
-                case ZombieStates.Move
-                    : // если activeState == ZombieStates.Move , зомби движется в направлении игрока (Rotate()) И
+                case ZombieStates.Move: // если activeState == ZombieStates.Move , зомби движется в направлении игрока (Rotate()) И
                     if (distance <= attackDistance) // если дистанция от зомби до игрока меньше или равна attackDistance, то активировать атаку у зомби 
                     {
                         ChangeState(ZombieStates.Attack);

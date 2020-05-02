@@ -6,6 +6,6 @@ public class EnemyWeapon : Weapon
 {
  public override bool ShootPossibility()
  {
-  return GetNextFire() <= 0;
+  return GetNextFire() <= 0 && GetCanShoot();
  }
 }

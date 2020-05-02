@@ -16,6 +16,7 @@ public class BaseClass : MonoBehaviour
     private Rigidbody2D _rigidbody2D;
     private Collider2D _collider2D;
     private Animator _animator;
+    private Weapon _weapon;
     
     public Player GetPlayer()
     {
@@ -37,6 +38,11 @@ public class BaseClass : MonoBehaviour
         return _animator;
     }
 
+    public Weapon GetWeapon()
+    {
+        return _weapon;
+    }
+
     public virtual void GetDamage(float getDamage)
     {
         health -= getDamage;
@@ -46,6 +52,7 @@ public class BaseClass : MonoBehaviour
         }
     }
 
+    // проигрывается анимация Death, уничтожается объект, его коллайдер,  
     public virtual void Death()
     {
         GetAnimator().SetTrigger("Death");
@@ -53,22 +60,7 @@ public class BaseClass : MonoBehaviour
         Destroy(GetCollider());
         GetRig().velocity = Vector2.zero;
     }
-    // при соприкосновении объектов вызывает метод, наносящий урон у поставщика урона
-    // @param collision - объект, который наносит урон 
-    private void OnTriggerEnter2D(Collider2D collision)
-    { 
-        DoDamage(collision.GetComponent<BaseClass>());
-    }
-    // заставляет получить урон
-    // @parameter damageDealler - объект, который наносит урон
-    public virtual void DoDamage(BaseClass damageDealler)
-    {
-        if (damageDealler.damage != null)
-        {
-            GetDamage(damageDealler.damage);
-        }
-    }
-
+    
     public virtual void Move()
     {
     }
@@ -88,6 +80,7 @@ public class BaseClass : MonoBehaviour
         _player = FindObjectOfType<Player>();
         _animator = GetComponentInChildren<Animator>();
         _collider2D = GetComponent<Collider2D>();
+        _weapon = GetComponent<Weapon>();
         StartAdditional();
     }
 

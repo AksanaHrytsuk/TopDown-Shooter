@@ -2,7 +2,6 @@
 
 public class Player : BaseClass
 {
-
     // Update is called once per frame
     void Update()
     {
@@ -27,5 +26,11 @@ public class Player : BaseClass
             Vector2 direction = transform.position - mouseWorldPosition;
             transform.up = direction;
         }
+    }
+
+    public override void Death()
+    {
+        base.Death();
+        Destroy(GetWeapon());
     }
 }

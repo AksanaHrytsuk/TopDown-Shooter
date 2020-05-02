@@ -610,25 +610,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1096311570 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3303031162797049913, guid: ff88554dd39f4a609ae233fa49be8b54,
-    type: 3}
-  m_PrefabInstance: {fileID: 836364844377400397}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1096311576
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1096311570}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c6562966dfcf0a3489f316ace1874493, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 10
 --- !u!4 &1257651724 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5738378532606685409, guid: 633095515d8cf39eca8a321c09003ccc,
@@ -991,6 +972,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1108996823, guid: ff88554dd39f4a609ae233fa49be8b54, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3303031162797049892, guid: ff88554dd39f4a609ae233fa49be8b54,
         type: 3}
       propertyPath: m_IsTrigger
@@ -1079,7 +1064,7 @@ PrefabInstance:
     - target: {fileID: 3303031162797049913, guid: ff88554dd39f4a609ae233fa49be8b54,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3303031162797049913, guid: ff88554dd39f4a609ae233fa49be8b54,
         type: 3}
@@ -1096,6 +1081,16 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 7179416970036658458, guid: ff88554dd39f4a609ae233fa49be8b54,
+        type: 3}
+      propertyPath: health
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7179416970036658458, guid: ff88554dd39f4a609ae233fa49be8b54,
+        type: 3}
+      propertyPath: speed
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 7482952050140684805, guid: ff88554dd39f4a609ae233fa49be8b54,
         type: 3}
       propertyPath: m_Layer
@@ -1110,6 +1105,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 604448807, guid: ece145d843abd196c81b0f500995672b, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 827232388, guid: ece145d843abd196c81b0f500995672b, type: 3}
       propertyPath: m_Icon
       value: 
@@ -1191,7 +1190,7 @@ PrefabInstance:
     - target: {fileID: 2760113052503723761, guid: ece145d843abd196c81b0f500995672b,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ece145d843abd196c81b0f500995672b, type: 3}
