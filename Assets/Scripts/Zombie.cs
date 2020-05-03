@@ -9,9 +9,10 @@ public class Zombie : EnemyMovement
     
     enum ZombieStates
     {
-        Stand,
+        Patrol,
         Move,
-        Attack
+        Attack,
+        Follow
     }
 
     private ZombieStates activeState;
@@ -19,7 +20,7 @@ public class Zombie : EnemyMovement
     // Start is called before the first frame update
     public override void StartAdditional()
     {
-        ChangeState(ZombieStates.Stand); // состояние зомби при старте игры stand(стоит на месте)
+        ChangeState(ZombieStates.Patrol); // состояние зомби при старте игры Patrol(патрулирует)
     }
 
     public override void FUpdate()
@@ -40,28 +41,37 @@ public class Zombie : EnemyMovement
 
             switch (activeState)
             {
-                case ZombieStates.Stand: // если activeState == ZombieStates.Stand , зомби стоит на месте И
-                    if (distance <= followDistance) // если дистанция от зомби до игрока меньше followDistance, то активировать движение у зомби
+                
+                case ZombieStates.Patrol: 
+                    if (distance < followDistance) 
                     {
-                        ChangeState(ZombieStates.Move);
+                        ChangeState(ZombieStates.Follow);
                     }
-
                     break;
-                case ZombieStates.Move: // если activeState == ZombieStates.Move , зомби движется в направлении игрока (Rotate()) И
-                    if (distance <= attackDistance) // если дистанция от зомби до игрока меньше или равна attackDistance, то активировать атаку у зомби 
+                case  ZombieStates.Follow:
+                    if (distance < attackDistance) 
                     {
                         ChangeState(ZombieStates.Attack);
                     }
-                    else if (distance >= loseDistance) // иначе если дистанция от зомби до игрока больше или равна loseDistance зомби стоит на месте, игрок сбежал
+                    else if (distance > loseDistance
+                    ) 
                     {
-                        ChangeState(ZombieStates.Stand);
+                        ChangeState(ZombieStates.Patrol);
                     }
+
                     Rotate();
+                    
                     break;
-                case ZombieStates.Attack: // если activeState == ZombieStates.Attack , зомби движется в направлении игрока (Rotate()) И
-                    if (distance > attackDistance) // если дистанция от зомби до игрока больше attackDistance, то активировать Движение у зомби 
+                // case ZombieStates.Move: // если activeState == ZombieStates.Move , зомби движется в направлении игрока (Rotate()) И
+                //     if (distance < attackDistance) // если дистанция от зомби до игрока меньше или равна attackDistance, то активировать атаку у зомби 
+                //     {
+                //         ChangeState(ZombieStates.Attack);
+                //     }
+                 
+                case ZombieStates.Attack: 
+                    if (distance > attackDistance) 
                     {
-                        ChangeState(ZombieStates.Move);
+                        ChangeState(ZombieStates.Follow);
                     }
                     Rotate();
 
@@ -84,13 +94,18 @@ public class Zombie : EnemyMovement
         
         switch (activeState) 
         {
-            case ZombieStates.Stand: // если активный шаг == Стэнд, то отключить движение зомби 
-                SetDoMove(false);
-                StopMovement();
-                break;
-            case ZombieStates.Move: // если активный шаг == Мув, то включить движение зомби 
+            case ZombieStates.Follow:
                 SetDoMove(true);
+                SetDoFollow(true);
                 break;
+            case ZombieStates.Patrol:
+                SetDoMove(true);
+                SetDoFollow(false);
+                //StopMovement();
+                break;
+            // case ZombieStates.Move: // если активный шаг == Мув, то включить движение зомби 
+            //     SetDoMove(true);
+            //     break;
             case ZombieStates.Attack: // если активный шаг == Аттак, то отключить движение зомби 
                 SetDoMove(false);
                 StopMovement();

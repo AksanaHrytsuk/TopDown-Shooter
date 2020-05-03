@@ -98,11 +98,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 562061bb5a9e02e09b74967fff40c5cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 0
+  speed: 0
+  damage: 10
   followDistance: 4
   attackDistance: 1.5
   loseDistance: 5
+  distanceToPoint: 1
+  patrolPoints: []
   attackRate: 2
-  damage: 10
 --- !u!1 &3303031163716796949
 GameObject:
   m_ObjectHideFlags: 0
