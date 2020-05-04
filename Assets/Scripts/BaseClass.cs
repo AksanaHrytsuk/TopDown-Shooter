@@ -10,6 +10,7 @@ public class BaseClass : MonoBehaviour
     public float health;
     public float speed;
     public float damage;
+    public float Money1 { get; set; }
 
 
     private Player _player;
@@ -52,7 +53,7 @@ public class BaseClass : MonoBehaviour
         }
     }
 
-    // проигрывается анимация Death, уничтожается объект, его коллайдер,  
+    // проигрывается анимация Death, уничтожается компонент,  коллайдер объекта, остановка движения объекта
     public virtual void Death()
     {
         GetAnimator().SetTrigger("Death");
@@ -87,10 +88,5 @@ public class BaseClass : MonoBehaviour
     public virtual void StartAdditional()
     {
         
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
     }
 }

@@ -5,12 +5,15 @@ public class Zombie : EnemyMovement
     [Header("Attack config")]
     public float attackRate;
 
+    public float probability;
+
     private float nextAttack;
+
+    private MedicineChest _medicineChest;
     
     enum ZombieStates
     {
         Patrol,
-        Move,
         Attack,
         Follow
     }
@@ -21,6 +24,7 @@ public class Zombie : EnemyMovement
     public override void StartAdditional()
     {
         ChangeState(ZombieStates.Patrol); // состояние зомби при старте игры Patrol(патрулирует)
+        _medicineChest = FindObjectOfType<MedicineChest>();
     }
 
     public override void FUpdate()
@@ -113,6 +117,34 @@ public class Zombie : EnemyMovement
         } 
     }
 
+    public override void Death()
+    {
+        base.Death();
+        CreatePickUp(_medicineChest);
+    }
+
+    public void CreatePickUp(MedicineChest _medicineChest)
+    {
+        if (_medicineChest != null)
+            if (Chance())
+            {
+                {
+                    Instantiate(_medicineChest, transform.position, Quaternion.identity);
+                }
+            }
+    }
+    
+    bool Chance()
+    {
+        int chance = Random.Range(0, 100);
+        if (chance < probability)
+        {
+            return true;
+        }
+        return false;
+    }
+    
+ 
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.blue;
