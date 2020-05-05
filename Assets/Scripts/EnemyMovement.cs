@@ -2,6 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
+
 
 public class EnemyMovement : BaseClass
 {
@@ -10,7 +12,11 @@ public class EnemyMovement : BaseClass
     public float attackDistance;
     public float loseDistance;
     public float distanceToPoint;
+    public float probability;
     public GameObject[] patrolPoints;
+    public GameObject[] pickUps;
+
+    private MedicineChest _medicineChest;
     
     private bool _doMove;
     private bool _doFollow;
@@ -38,6 +44,11 @@ public class EnemyMovement : BaseClass
 
     public virtual void FUpdate()
     {
+    }
+
+    public override void StartAdditional()
+    {
+        _medicineChest = FindObjectOfType<MedicineChest>();
     }
 
     private Vector2 Direction()
@@ -103,5 +114,25 @@ public class EnemyMovement : BaseClass
         {
             GetRig().velocity = Vector2.zero;
         }
+    }
+    public void CreatePickUp()
+    {
+        if (_medicineChest != null)
+            if (Chance())
+            {
+                {
+                    Instantiate(pickUps[0], transform.position, Quaternion.identity);
+                }
+            }
+    }
+    
+    bool Chance()
+    {
+        int chance = Random.Range(1, 100);
+        if (chance < probability)
+        {
+            return true;
+        }
+        return false;
     }
 }
