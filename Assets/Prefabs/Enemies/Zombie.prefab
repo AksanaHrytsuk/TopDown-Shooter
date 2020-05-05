@@ -99,15 +99,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 150
-  speed: 1
+  speed: 4
   damage: 10
   followDistance: 4
   attackDistance: 1.5
   loseDistance: 5
-  distanceToPoint: 1
+  distanceToPoint: 0.5
   patrolPoints: []
   attackRate: 2
-  probability: 50
+  probability: 90
 --- !u!1 &3303031163716796949
 GameObject:
   m_ObjectHideFlags: 0

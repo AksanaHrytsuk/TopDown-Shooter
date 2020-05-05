@@ -14,9 +14,11 @@ public class Player : BaseClass
     {
         float inputX = Input.GetAxis("Horizontal");
         float inputY = Input.GetAxis("Vertical");
-
-        GetRig().velocity = new Vector2(inputX, inputY) * speed;
-        GetAnimator().SetFloat("Speed", GetRig().velocity.magnitude);
+        if (GetRig() != null)
+        {
+            GetRig().velocity = new Vector2(inputX, inputY) * speed;
+            GetAnimator().SetFloat("Speed", GetRig().velocity.magnitude);
+        }
     }
     
     public override void Rotate()

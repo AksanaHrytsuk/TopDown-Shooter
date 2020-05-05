@@ -8,9 +8,10 @@ public class Zombie : EnemyMovement
     public float probability;
 
     private float nextAttack;
+    public GameObject[] pickUps;
 
     private MedicineChest _medicineChest;
-    
+
     enum ZombieStates
     {
         Patrol,
@@ -29,7 +30,15 @@ public class Zombie : EnemyMovement
 
     public override void FUpdate()
     {
-        UpdateState();
+        if (PlayerIdDead())
+        {
+            ChangeState(ZombieStates.Patrol);
+        }
+        else
+        {
+            UpdateState();
+        }
+        
         if (GetRig() != null)
         {
             GetAnimator().SetFloat("Speed", GetRig().velocity.magnitude);
@@ -49,16 +58,17 @@ public class Zombie : EnemyMovement
                 case ZombieStates.Patrol: 
                     if (distance < followDistance) 
                     {
+                        Debug.Log("Follow");
                         ChangeState(ZombieStates.Follow);
                     }
                     break;
                 case  ZombieStates.Follow:
                     if (distance < attackDistance) 
                     {
+                        Debug.Log("Attack");
                         ChangeState(ZombieStates.Attack);
                     }
-                    else if (distance > loseDistance
-                    ) 
+                    else if (distance > loseDistance) 
                     {
                         ChangeState(ZombieStates.Patrol);
                     }
@@ -72,24 +82,28 @@ public class Zombie : EnemyMovement
                 //         ChangeState(ZombieStates.Attack);
                 //     }
                  
-                case ZombieStates.Attack: 
-                    if (distance > attackDistance) 
+                case ZombieStates.Attack:
+                    
+                    if (distance > attackDistance)
                     {
                         ChangeState(ZombieStates.Follow);
                     }
                     Rotate();
-
                     nextAttack -= Time.fixedDeltaTime;
                     if (nextAttack <= 0)
                     {
-                        GetAnimator().SetTrigger("Shoot");
-
-                        nextAttack = attackRate;
+                         GetAnimator().SetTrigger("Shoot");
+                         nextAttack = attackRate;
                     }
-                    GetAnimator().SetTrigger("Shoot"); // включать триггер Шот(Аттака) - проигрывается анимация атаки
+                    GetAnimator().SetTrigger("Shoot"); // включать триггер Шот(Аттака) - проигрывается анимация атаки   
                     break;
             }
         } 
+    }
+
+    private bool PlayerIdDead()
+    {
+        return GetPlayer().health <= 0;
     }
 
     void ChangeState(ZombieStates newState) 
@@ -120,16 +134,16 @@ public class Zombie : EnemyMovement
     public override void Death()
     {
         base.Death();
-        CreatePickUp(_medicineChest);
+        CreatePickUp();
     }
 
-    public void CreatePickUp(MedicineChest _medicineChest)
+    public void CreatePickUp()
     {
         if (_medicineChest != null)
             if (Chance())
             {
                 {
-                    Instantiate(_medicineChest, transform.position, Quaternion.identity);
+                    Instantiate(pickUps[0], transform.position, Quaternion.identity);
                 }
             }
     }

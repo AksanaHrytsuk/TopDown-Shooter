@@ -57,9 +57,9 @@ public class BaseClass : MonoBehaviour
     public virtual void Death()
     {
         GetAnimator().SetTrigger("Death");
-        Destroy(this);
+        // Destroy(this);
         Destroy(GetCollider());
-        GetRig().velocity = Vector2.zero;
+        Destroy(GetRig());
     }
     
     public virtual void Move()
