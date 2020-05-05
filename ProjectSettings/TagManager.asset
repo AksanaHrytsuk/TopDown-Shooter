@@ -45,6 +45,9 @@ TagManager:
   - name: Bullet
     uniqueID: 3700011629
     locked: 0
+  - name: Furniture
+    uniqueID: 253874103
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

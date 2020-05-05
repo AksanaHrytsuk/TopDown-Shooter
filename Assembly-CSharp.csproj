@@ -85,6 +85,9 @@
  <Reference Include="Unity.VSCode.Editor">
  <HintPath>/home/oksana/Документы/TopDown Shooter/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
  </Reference>
+ <Reference Include="Unity.2D.Tilemap.Extras.Editor">
+ <HintPath>/home/oksana/Документы/TopDown Shooter/Library/ScriptAssemblies/Unity.2D.Tilemap.Extras.Editor.dll</HintPath>
+ </Reference>
  <Reference Include="Unity.TextMeshPro.Editor">
  <HintPath>/home/oksana/Документы/TopDown Shooter/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>
@@ -106,6 +109,9 @@
  <Reference Include="Unity.2D.Tilemap.Editor">
  <HintPath>/home/oksana/Документы/TopDown Shooter/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
  </Reference>
+ <Reference Include="Unity.2D.Tilemap.Extras">
+ <HintPath>/home/oksana/Документы/TopDown Shooter/Library/ScriptAssemblies/Unity.2D.Tilemap.Extras.dll</HintPath>
+ </Reference>
  <Reference Include="com.unity.cinemachine.editor">
  <HintPath>/home/oksana/Документы/TopDown Shooter/Library/ScriptAssemblies/com.unity.cinemachine.editor.dll</HintPath>
  </Reference>
@@ -114,12 +120,6 @@
  </Reference>
  <Reference Include="UnityEditor.UI">
  <HintPath>/home/oksana/Документы/TopDown Shooter/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
- </Reference>
- <Reference Include="Unity.2D.Tilemap.Extras.Editor">
- <HintPath>/home/oksana/Документы/TopDown Shooter/Library/ScriptAssemblies/Unity.2D.Tilemap.Extras.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Unity.2D.Tilemap.Extras">
- <HintPath>/home/oksana/Документы/TopDown Shooter/Library/ScriptAssemblies/Unity.2D.Tilemap.Extras.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.AIModule">
  <HintPath>/home/oksana/Unity/Hub/Editor/2019.3.2f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>

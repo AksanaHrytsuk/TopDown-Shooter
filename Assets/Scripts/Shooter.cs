@@ -92,7 +92,7 @@ public class Shooter : EnemyMovement
         Destroy(GetWeapon());
     }
 
-    private void OnDrawGizmos()
+    private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.yellow;
         var position = transform.position;
