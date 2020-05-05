@@ -150,8 +150,8 @@ public class Zombie : EnemyMovement
     
     bool Chance()
     {
-        int chance = Random.Range(0, 100);
-        if (chance < probability)
+        int chance = Random.Range(0, 101);
+        if (chance <= probability)
         {
             return true;
         }
