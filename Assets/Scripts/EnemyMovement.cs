@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using Random = UnityEngine.Random;
+﻿using UnityEngine;
 
 
 public class EnemyMovement : BaseClass
 {
-    [Header("AI config")]
-    public float followDistance;
+    [Header("AI config")] public float followDistance;
     public float attackDistance;
     public float loseDistance;
     public float distanceToPoint;
@@ -16,11 +11,10 @@ public class EnemyMovement : BaseClass
     public GameObject[] patrolPoints;
     public GameObject[] pickUps;
 
-    private MedicineChest _medicineChest;
     
     private bool _doMove;
     private bool _doFollow;
-    
+
     public bool GetDoMove()
     {
         return _doMove;
@@ -35,6 +29,7 @@ public class EnemyMovement : BaseClass
     {
         _doMove = b;
     }
+
     void FixedUpdate()
     {
         Move();
@@ -44,11 +39,6 @@ public class EnemyMovement : BaseClass
 
     public virtual void FUpdate()
     {
-    }
-
-    public override void StartAdditional()
-    {
-        _medicineChest = FindObjectOfType<MedicineChest>();
     }
 
     private Vector2 Direction()
@@ -63,7 +53,8 @@ public class EnemyMovement : BaseClass
             StopMovement();
             return transform.position;
         }
-        Vector2 direction =  patrolPoints[0].transform.position - transform.position; // желаемое - текущее 
+
+        Vector2 direction = patrolPoints[0].transform.position - transform.position; // желаемое - текущее 
         ChangeDirection();
         return direction;
     }
@@ -85,11 +76,12 @@ public class EnemyMovement : BaseClass
             patrolPoints[i] = patrolPoints[i + 1];
         }
 
-        patrolPoints[patrolPoints.Length-1] = tmp; // обращение к последнему элементу массива
+        patrolPoints[patrolPoints.Length - 1] = tmp; // обращение к последнему элементу массива
     }
+
     public override void Move()
-    {    
-        if  (GetPlayer() != null && _doMove)
+    {
+        if (GetPlayer() != null && _doMove)
         {
             GetRig().velocity = Direction().normalized * speed;
         }
@@ -104,10 +96,9 @@ public class EnemyMovement : BaseClass
         if (GetPlayer() != null)
         {
             transform.up = -Direction();
-
         }
     }
-    
+
     public void StopMovement()
     {
         if (GetRig() != null)
@@ -115,24 +106,25 @@ public class EnemyMovement : BaseClass
             GetRig().velocity = Vector2.zero;
         }
     }
+
     public void CreatePickUp()
     {
-        if (_medicineChest != null)
-            if (Chance())
-            {
-                {
-                    Instantiate(pickUps[0], transform.position, Quaternion.identity);
-                }
-            }
-    }
-    
-    bool Chance()
-    {
-        int chance = Random.Range(1, 100);
-        if (chance < probability)
+        if (Chance())
         {
-            return true;
+            {
+                Instantiate(pickUps[0], transform.position, Quaternion.identity);
+            }
         }
-        return false;
     }
-}
+
+    bool Chance()
+        {
+            int chance = Random.Range(1, 100);
+            if (chance < probability)
+            {
+                return true;
+            }
+
+            return false;
+        }
+    }

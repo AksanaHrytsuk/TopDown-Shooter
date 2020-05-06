@@ -24,7 +24,7 @@ public class Zombie : EnemyMovement
 
     public override void FUpdate()
     {
-        if (PlayerIdDead())
+        if (PlayerIsDead())
         {
             ChangeState(ZombieStates.Patrol);
         }
@@ -95,7 +95,7 @@ public class Zombie : EnemyMovement
         } 
     }
 
-    private bool PlayerIdDead()
+    private bool PlayerIsDead()
     {
         return GetPlayer().health <= 0;
     }
@@ -128,6 +128,7 @@ public class Zombie : EnemyMovement
     public override void Death()
     {
         base.Death();
+        Destroy(this);
         CreatePickUp();
     }
    
