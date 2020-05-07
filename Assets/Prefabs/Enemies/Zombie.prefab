@@ -108,7 +108,7 @@ MonoBehaviour:
   probability: 90
   patrolPoints: []
   pickUps:
-  - {fileID: 3199792505538048419, guid: 6c69f899a0d4b3b26bccaf3140a0a092, type: 3}
+  - {fileID: 8676510767360365883, guid: fe94ef11696a2aa809867aefb1523378, type: 3}
   attackRate: 2
 --- !u!1 &3303031163716796949
 GameObject:
