@@ -67,6 +67,7 @@
      <Compile Include="Assets\Scripts\MedicineChest.cs" />
      <Compile Include="Assets\Scripts\Men\EnemyMovement1.cs" />
      <Compile Include="Assets\Scripts\Money.cs" />
+     <Compile Include="Assets\Scripts\MusicController.cs" />
      <Compile Include="Assets\Scripts\PickUp.cs" />
      <Compile Include="Assets\Scripts\Player.cs" />
      <Compile Include="Assets\Scripts\PlayerInfoUI.cs" />

@@ -245,3 +245,4 @@ MonoBehaviour:
   health: 0
   speed: 0
   damage: 0
+  zombieSound: {fileID: 8300000, guid: 9f8a1e6741a342647b9c0055e1e0a7b8, type: 3}

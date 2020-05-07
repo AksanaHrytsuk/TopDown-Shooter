@@ -12,7 +12,7 @@ public class BaseClass : MonoBehaviour
     public float damage;
     public float Money1 { get; set; }
 
-
+    private AudioSource _audioSource;
     private Player _player;
     private Rigidbody2D _rigidbody2D;
     private Collider2D _collider2D;
@@ -82,11 +82,17 @@ public class BaseClass : MonoBehaviour
         _animator = GetComponentInChildren<Animator>();
         _collider2D = GetComponent<Collider2D>();
         _weapon = GetComponent<Weapon>();
+        _audioSource = GetComponent<AudioSource>();
         StartAdditional();
     }
 
     public virtual void StartAdditional()
     {
         
+    }
+    
+    public void PlaySound(AudioClip sound)
+    {
+        _audioSource.PlayOneShot(sound);
     }
 }
