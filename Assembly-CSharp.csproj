@@ -76,6 +76,7 @@
      <Compile Include="Assets\Scripts\Shooter.cs" />
      <Compile Include="Assets\Scripts\Weapon.cs" />
      <Compile Include="Assets\Scripts\Zombie.cs" />
+     <Compile Include="Assets\Scripts\ZombieInfoUI.cs" />
      <Compile Include="Assets\Scripts\ZombieScripts\ZombieAnimationHelper.cs" />
      <Compile Include="Assets\Scripts\ZombieScripts\ZombieMovement.cs" />
      <Compile Include="Assets\Scripts\items\Bullet.cs" />

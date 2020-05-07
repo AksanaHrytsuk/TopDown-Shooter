@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class BaseClass : MonoBehaviour
 {
+    public Action onHealthChanged = delegate {  };
+    
     [Header("Config Parameters")]
     public float health;
     public float speed;
@@ -47,6 +49,7 @@ public class BaseClass : MonoBehaviour
     public virtual void GetDamage(float getDamage)
     {
         health -= getDamage;
+        onHealthChanged();
         if (health <= 0)
         {
             Death();

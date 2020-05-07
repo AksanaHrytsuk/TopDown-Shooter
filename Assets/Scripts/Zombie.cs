@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
+using System;
 
 public class Zombie : EnemyMovement
 {
+    
     [Header("Attack config")]
     public float attackRate;
     private float nextAttack;
@@ -19,7 +21,12 @@ public class Zombie : EnemyMovement
     public override void StartAdditional()
     {
         ChangeState(ZombieStates.Patrol); // состояние зомби при старте игры Patrol(патрулирует)
-        
+        onHealthChanged += PrintMessage;
+    }
+
+    void PrintMessage()
+    {
+        Debug.Log("print");
     }
 
     public override void FUpdate()
@@ -52,12 +59,18 @@ public class Zombie : EnemyMovement
                 case ZombieStates.Patrol: 
                     if (distance < followDistance) 
                     {
+                        LayerMask layerMask = LayerMask.GetMask("Walls");
+                        Vector2 direction = GetPlayer().transform.position - transform.position;
+                        RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, distance, layerMask);
                         Debug.Log("Follow");
-                        ChangeState(ZombieStates.Follow);
+                        if (hit.collider == null)
+                        {
+                            ChangeState(ZombieStates.Follow);
+                        }
                     }
                     break;
                 case  ZombieStates.Follow:
-                    if (distance < attackDistance) 
+                    if (distance < attackDistance)
                     {
                         Debug.Log("Attack");
                         ChangeState(ZombieStates.Attack);
