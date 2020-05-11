@@ -38913,6 +38913,11 @@ PrefabInstance:
       propertyPath: followDistance
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 7179416970036658458, guid: ff88554dd39f4a609ae233fa49be8b54,
+        type: 3}
+      propertyPath: health
+      value: 50
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff88554dd39f4a609ae233fa49be8b54, type: 3}
 --- !u!1001 &1880726162488550935
@@ -39314,6 +39319,20 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 499453846, guid: 633095515d8cf39eca8a321c09003ccc, type: 3}
+      propertyPath: health
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 4634622918504128708, guid: 633095515d8cf39eca8a321c09003ccc,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.0318
+      objectReference: {fileID: 0}
+    - target: {fileID: 4634622918504128708, guid: 633095515d8cf39eca8a321c09003ccc,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 156.364
+      objectReference: {fileID: 0}
     - target: {fileID: 5738378532606685409, guid: 633095515d8cf39eca8a321c09003ccc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -39509,6 +39528,11 @@ PrefabInstance:
       propertyPath: patrolPoints.Array.data[1]
       value: 
       objectReference: {fileID: 1463990169}
+    - target: {fileID: 4413882981442026559, guid: 4f5d34ea81a37564a95287a52ee88ae7,
+        type: 3}
+      propertyPath: health
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 8301703983938696448, guid: 4f5d34ea81a37564a95287a52ee88ae7,
         type: 3}
       propertyPath: m_LocalPosition.x
