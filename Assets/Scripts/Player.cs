@@ -41,6 +41,7 @@ public class Player : BaseClass
     {
         base.Death();
         Destroy(GetWeapon());
+        _image.SetActive(true);
     }
   
 }
