@@ -21,13 +21,13 @@ public class Zombie : EnemyMovement
     public override void StartAdditional()
     {
         ChangeState(ZombieStates.Patrol); // состояние зомби при старте игры Patrol(патрулирует)
-        onHealthChanged += PrintMessage;
+        // onHealthChanged += PrintMessage;
     }
 
-    void PrintMessage()
-    {
-        Debug.Log("print");
-    }
+    // void PrintMessage()
+    // {
+    //     Debug.Log("print");
+    // }
 
     public override void FUpdate()
     {
@@ -51,7 +51,6 @@ public class Zombie : EnemyMovement
         if (GetPlayer() != null)
         {
             float distance = Vector3.Distance(transform.position, GetPlayer().transform.position); // дистанция от зомби к игроку
-
 
             switch (activeState)
             {
@@ -126,7 +125,6 @@ public class Zombie : EnemyMovement
             case ZombieStates.Patrol:
                 SetDoMove(true);
                 SetDoFollow(false);
-                //StopMovement();
                 break;
             // case ZombieStates.Move: // если активный шаг == Мув, то включить движение зомби 
             //     SetDoMove(true);

@@ -49,7 +49,9 @@ public class BaseClass : MonoBehaviour
     public virtual void GetDamage(float getDamage)
     {
         health -= getDamage;
+        
         onHealthChanged();
+        
         if (health <= 0)
         {
             Death();

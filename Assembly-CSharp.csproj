@@ -59,6 +59,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\BaseClass.cs" />
+     <Compile Include="Assets\Scripts\Bullet.cs" />
      <Compile Include="Assets\Scripts\CreatedToDie.cs" />
      <Compile Include="Assets\Scripts\EnemyMovement.cs" />
      <Compile Include="Assets\Scripts\EnemyWeapon.cs" />
@@ -79,7 +80,6 @@
      <Compile Include="Assets\Scripts\ZombieInfoUI.cs" />
      <Compile Include="Assets\Scripts\ZombieScripts\ZombieAnimationHelper.cs" />
      <Compile Include="Assets\Scripts\ZombieScripts\ZombieMovement.cs" />
-     <Compile Include="Assets\Scripts\items\Bullet.cs" />
      <Compile Include="Assets\Scripts\items\DamageDealer.cs" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>/home/oksana/Документы/TopDown Shooter/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>

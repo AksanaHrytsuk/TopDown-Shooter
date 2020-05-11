@@ -3,20 +3,25 @@ using UnityEngine.UI;
 
 public class PlayerInfoUI : MonoBehaviour
 {
-    private Player _player;
-    public Slider healthslider;
+    public Player _player;
+    public Slider healthSlider;
     
-    // Start is called before the first frame update
+   
     void Start()
     {
-        _player = FindObjectOfType<Player>();
+        _player.onHealthChanged += UpdateSlider;
 
-        healthslider.maxValue = _player.health;
+        healthSlider.maxValue = _player.health;
+        healthSlider.value = _player.health;
     }
 
-    // Update is called once per frame
+    void UpdateSlider()
+    {
+        healthSlider.value = _player.health;
+    }
+    
     void Update()
     {
-        healthslider.value = _player.health;
+        transform.rotation = Quaternion.identity;
     }
 }

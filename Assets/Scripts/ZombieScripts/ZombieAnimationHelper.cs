@@ -5,7 +5,7 @@ using UnityEngine;
 public class ZombieAnimationHelper : BaseClass
 {
     public AudioClip zombieSound;
-    void Attack()
+   public void Attack()
     {
         PlaySound(zombieSound);
         float zombieDamage = GetComponentInParent<Zombie>().damage;

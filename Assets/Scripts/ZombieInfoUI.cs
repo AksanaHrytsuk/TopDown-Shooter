@@ -5,10 +5,10 @@ using UnityEngine.UI;
 
 public class ZombieInfoUI : MonoBehaviour
 {
+    [Header("UI Eliments")]
     public Slider _slider;
-    
     public Zombie _zombie;
-    // Start is called before the first frame update
+
     void Start()
     {
         _slider.maxValue = _zombie.health;
@@ -18,6 +18,7 @@ public class ZombieInfoUI : MonoBehaviour
 
     void UpdateSlider()
     {
+        Debug.Log("Update slider");
         _slider.value = _zombie.health;
     }
 
