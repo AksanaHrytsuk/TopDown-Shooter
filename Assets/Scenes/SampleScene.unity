@@ -36663,7 +36663,7 @@ Tilemap:
       - {fileID: -5863527516043309086, guid: eeb0f6f3866d39f80b2b0179169bb693, type: 3}
       - {fileID: 5462605338289988509, guid: eeb0f6f3866d39f80b2b0179169bb693, type: 3}
       - {fileID: -440442676701968749, guid: eeb0f6f3866d39f80b2b0179169bb693, type: 3}
-      m_AnimationSpeed: 10
+      m_AnimationSpeed: 10.000001
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 2, y: -3, z: 0}
@@ -37398,6 +37398,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61d047dab8944f95a08a6ae8b4bfc45f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _player: {fileID: 499453846}
 --- !u!4 &1804672163
 Transform:
   m_ObjectHideFlags: 0
@@ -38735,7 +38736,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9528302, g: 0.91237986, b: 0.91237986, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -39260,7 +39261,7 @@ PrefabInstance:
     - target: {fileID: 2760113052503723761, guid: ece145d843abd196c81b0f500995672b,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 604448807, guid: ece145d843abd196c81b0f500995672b, type: 3}

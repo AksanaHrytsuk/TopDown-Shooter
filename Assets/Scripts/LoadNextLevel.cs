@@ -1,8 +1,16 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class LoadNextLevel : MonoBehaviour
 {
+    public Player _player;
+
+    private void Awake()
+    {
+        _player.ifDeath += RestartLevel;
+    }
+
     public void LoadLevel()
     {
         int activeSceneIndex = SceneManager.GetActiveScene().buildIndex;
