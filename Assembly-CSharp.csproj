@@ -65,6 +65,7 @@
      <Compile Include="Assets\Scripts\EnemyWeapon.cs" />
      <Compile Include="Assets\Scripts\ExplosiveBarrel.cs" />
      <Compile Include="Assets\Scripts\LoadNextLevel.cs" />
+     <Compile Include="Assets\Scripts\LoadNextLevelPickup.cs" />
      <Compile Include="Assets\Scripts\MedicineChest.cs" />
      <Compile Include="Assets\Scripts\Men\EnemyMovement1.cs" />
      <Compile Include="Assets\Scripts\Money.cs" />

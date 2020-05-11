@@ -4,12 +4,18 @@ public class Player : BaseClass
 {
     public float maxHealth;
 
+    public GameObject _image;
+    
     void Update()
     {
         Move();
         Rotate();
     }
-    
+
+    public override void StartAdditional()
+    {
+        _image.SetActive(false);
+    }
     public override void Move()
     {
         float inputX = Input.GetAxis("Horizontal");
@@ -36,4 +42,5 @@ public class Player : BaseClass
         base.Death();
         Destroy(GetWeapon());
     }
+  
 }

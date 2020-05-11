@@ -15,7 +15,7 @@ public class PlayerInfoUI : MonoBehaviour
         healthSlider.value = _player.health;
     }
 
-    void UpdateSlider()
+   public void UpdateSlider()
     {
         healthSlider.value = _player.health;
     }

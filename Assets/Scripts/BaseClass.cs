@@ -7,6 +7,7 @@ using UnityEngine;
 public class BaseClass : MonoBehaviour
 {
     public Action onHealthChanged = delegate {  };
+    public Action ifDeath = delegate {  };
     
     [Header("Config Parameters")]
     public float health;
@@ -61,6 +62,7 @@ public class BaseClass : MonoBehaviour
     // проигрывается анимация Death, уничтожается компонент,  коллайдер объекта, остановка движения объекта
     public virtual void Death()
     {
+        ifDeath();
         GetAnimator().SetTrigger("Death");
         // Destroy(this);
         Destroy(GetCollider());

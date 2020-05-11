@@ -6,8 +6,20 @@ using UnityEngine;
 
 public class PickUp : MonoBehaviour
 {
+    private PlayerInfoUI _playerInfoUi;
     private Player _player;
+    private LoadNextLevel _loadNextLevel;
 
+
+    public PlayerInfoUI GetPlayerUI()
+    {
+        return _playerInfoUi;
+    }
+    
+    public LoadNextLevel GetLoadNextLvl()
+    {
+        return _loadNextLevel;
+    }
     public Player GetPlayer()
     {
         return _player;
@@ -24,16 +36,12 @@ public class PickUp : MonoBehaviour
 
     private void Start()
     {
+        _playerInfoUi = FindObjectOfType<PlayerInfoUI>();
         _player = FindObjectOfType<Player>();
-        StartIsChanged();
+        _loadNextLevel = FindObjectOfType<LoadNextLevel>();
     }
 
-    public virtual StartIsChanged()
-    {
-        
-    }
-
-    public virtual void Apply()
+   public virtual void Apply()
     {
         
     }

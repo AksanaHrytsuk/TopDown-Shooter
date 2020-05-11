@@ -8,7 +8,11 @@ public class ZombieAnimationHelper : BaseClass
    public void Attack()
     {
         PlaySound(zombieSound);
-        float zombieDamage = GetComponentInParent<Zombie>().damage;
-        GetPlayer().GetDamage(zombieDamage);
+        Zombie thisZombie = GetComponentInParent<Zombie>();
+        if (thisZombie != null)
+        {
+            float zombieDamage = thisZombie.damage;
+            GetPlayer().GetDamage(zombieDamage);
+        }
     }
 }
