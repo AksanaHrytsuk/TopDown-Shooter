@@ -25,6 +25,12 @@ public class PickUp : MonoBehaviour
     private void Start()
     {
         _player = FindObjectOfType<Player>();
+        StartIsChanged();
+    }
+
+    public virtual StartIsChanged()
+    {
+        
     }
 
     public virtual void Apply()
