@@ -4,7 +4,7 @@ public class Player : BaseClass
 {
     public float maxHealth;
 
-    public GameObject _image;
+   // public GameObject _image;
     
     void Update()
     {
@@ -14,7 +14,7 @@ public class Player : BaseClass
 
     public override void StartAdditional()
     {
-        _image.SetActive(false);
+        //_image.SetActive(false);
     }
     public override void Move()
     {
@@ -41,7 +41,7 @@ public class Player : BaseClass
     {
         base.Death();
         Destroy(GetWeapon());
-        _image.SetActive(true);
+       
     }
   
 }

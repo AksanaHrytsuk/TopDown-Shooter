@@ -4,11 +4,22 @@ using UnityEngine.SceneManagement;
 
 public class LoadNextLevel : MonoBehaviour
 {
-    public Player _player;
+    [HideInInspector]
+    public Player player;
+    [HideInInspector]
+    public GameObject image;
+    [HideInInspector]
+    public GameObject playerInfo;
+    
+    public bool startGame;
 
     private void Awake()
     {
-        _player.ifDeath += RestartLevel;
+        if (!startGame)
+        {
+            image.SetActive(false);
+            player.ifDeath += RestartMenu;
+        }
     }
 
     public void LoadLevel()
@@ -25,5 +36,11 @@ public class LoadNextLevel : MonoBehaviour
      {
          string name = SceneManager.GetActiveScene().name;
          SceneManager.LoadScene(name);
+     }
+
+     public void RestartMenu()
+     {
+         image.SetActive(true);
+         playerInfo.SetActive(false);
      }
 }

@@ -46,6 +46,10 @@ public class Zombie : EnemyMovement
         }
     }
 
+    public Vector2 GetDirectionVector2D(float angle)
+    {
+        return new Vector2(Mathf.Cos(angle * Mathf.Deg2Rad), Mathf.Sin(angle * Mathf.Deg2Rad)).normalized;
+    }
     void UpdateState()
     {
         if (GetPlayer() != null)
@@ -61,7 +65,6 @@ public class Zombie : EnemyMovement
                         LayerMask layerMask = LayerMask.GetMask("Walls");
                         Vector2 direction = GetPlayer().transform.position - transform.position;
                         RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, distance, layerMask);
-                        Debug.Log("Follow");
                         if (hit.collider == null)
                         {
                             ChangeState(ZombieStates.Follow);
@@ -90,10 +93,10 @@ public class Zombie : EnemyMovement
                  
                 case ZombieStates.Attack:
                     
-                    if (distance > attackDistance)
-                    {
-                        ChangeState(ZombieStates.Follow);
-                    }
+                    // if (distance > attackDistance)
+                    // {
+                    //     ChangeState(ZombieStates.Follow);
+                    // }
                     Rotate();
                     nextAttack -= Time.fixedDeltaTime;
                     if (nextAttack <= 0)
