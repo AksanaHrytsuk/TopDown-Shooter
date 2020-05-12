@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
-
+using Lean.Pool;
 public class Weapon : MonoBehaviour
 {
     [Header("Elements UI")]
@@ -57,7 +57,7 @@ public class Weapon : MonoBehaviour
     {
         if (ShootPossibility())
         {
-            Instantiate(bulletPrefab, shootPosition.position, transform.rotation);
+            LeanPool.Spawn(bulletPrefab, shootPosition.position, transform.rotation);
             _nextFire = fireRate;
             _animator.SetTrigger("Shoot");
         }

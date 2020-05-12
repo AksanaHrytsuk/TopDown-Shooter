@@ -7,7 +7,8 @@ public class Zombie : EnemyMovement
     [Header("Attack config")]
     public float attackRate;
     private float nextAttack;
-   
+
+    public float searchAngel = 45f;
     enum ZombieStates
     {
         Patrol,
@@ -154,8 +155,17 @@ public class Zombie : EnemyMovement
         
         Gizmos.DrawWireSphere(position, attackDistance);
         Gizmos.color = Color.yellow;
-
+        
         Gizmos.color = Color.white;
         Gizmos.DrawWireSphere(position, loseDistance);
+
+        Gizmos.color = Color.magenta;
+        Vector3 lookDirection = -transform.up;
+        // Gizmos.DrawRay(transform.position, lookDirection * followDistance);
+        //Quaternion rotation = Quaternion.AngleAxis(searchAngel, Vector3.forward);
+        Vector3 v1 = Quaternion.AngleAxis(searchAngel, Vector3.forward) * lookDirection;
+        Vector3 v2 = Quaternion.AngleAxis(-searchAngel, Vector3.forward) * lookDirection;
+        Gizmos.DrawRay(transform.position, v1 * followDistance);
+        Gizmos.DrawRay(transform.position, v2 * followDistance);
     }
 }

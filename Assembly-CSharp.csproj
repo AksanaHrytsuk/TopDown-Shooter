@@ -58,6 +58,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Lean\Common\Examples\Scripts\LeanCircuit.cs" />
+     <Compile Include="Assets\Lean\Common\Examples\Scripts\LeanDocumentation.cs" />
+     <Compile Include="Assets\Lean\Common\Examples\Scripts\LeanLinkTo.cs" />
+     <Compile Include="Assets\Lean\Common\Scripts\LeanHelper.cs" />
+     <Compile Include="Assets\Lean\Common\Scripts\LeanInspector.cs" />
+     <Compile Include="Assets\Lean\Pool\Examples\Scripts\LeanPoolDebugger.cs" />
+     <Compile Include="Assets\Lean\Pool\Examples\Scripts\LeanPooledRigidbody.cs" />
+     <Compile Include="Assets\Lean\Pool\Examples\Scripts\LeanPooledRigidbody2D.cs" />
+     <Compile Include="Assets\Lean\Pool\Scripts\IPoolable.cs" />
+     <Compile Include="Assets\Lean\Pool\Scripts\LeanClassPool.cs" />
+     <Compile Include="Assets\Lean\Pool\Scripts\LeanGameObjectPool.cs" />
+     <Compile Include="Assets\Lean\Pool\Scripts\LeanPool.cs" />
      <Compile Include="Assets\Scripts\BaseClass.cs" />
      <Compile Include="Assets\Scripts\Bullet.cs" />
      <Compile Include="Assets\Scripts\CreatedToDie.cs" />
@@ -82,6 +94,11 @@
      <Compile Include="Assets\Scripts\ZombieScripts\ZombieAnimationHelper.cs" />
      <Compile Include="Assets\Scripts\ZombieScripts\ZombieMovement.cs" />
      <Compile Include="Assets\Scripts\items\DamageDealer.cs" />
+     <None Include="Assets\Lean\Common\Examples\Fonts\OFL.txt" />
+     <None Include="Assets\Lean\Common\Examples\Shaders\Object.shader" />
+     <None Include="Assets\Lean\Common\Examples\Shaders\Skybox.shader" />
+     <None Include="Assets\Lean\READ ME.txt" />
+     <None Include="Assets\Lean\Common\Examples\Shaders\Alpha.shader" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>/home/oksana/Документы/TopDown Shooter/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,12 +8,17 @@ public class Bullet : BaseClass
     // Start is called before the first frame update
     public override void StartAdditional()
     {
+        
+    }
+
+    private void OnEnable()
+    {
         GetRig().velocity = -transform.up * speed;
     }
 
     private void OnBecameInvisible()
     {
-        Destroy(gameObject);
+        Lean.Pool.LeanPool.Despawn(gameObject);
     }
     
     // при соприкосновении объектов вызывает метод, наносящий урон тому с кем сталкивается
@@ -24,7 +30,7 @@ public class Bullet : BaseClass
         {
             damageOwner.GetDamage(damage);
         }
-        Destroy(gameObject);
+        Lean.Pool.LeanPool.Despawn(gameObject);
     }
 
 }
