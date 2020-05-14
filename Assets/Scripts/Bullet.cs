@@ -18,7 +18,10 @@ public class Bullet : BaseClass
 
     private void OnBecameInvisible()
     {
-        Lean.Pool.LeanPool.Despawn(gameObject);
+        if (gameObject.activeSelf) // check if object was despawned
+        {
+            Lean.Pool.LeanPool.Despawn(gameObject);
+        }
     }
     
     // при соприкосновении объектов вызывает метод, наносящий урон тому с кем сталкивается
