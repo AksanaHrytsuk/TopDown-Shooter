@@ -1,12 +1,18 @@
 ﻿using UnityEngine;
-using System;
 
-public class Zombie : EnemyMovement
+
+public class Zombie : BaseClass
 {
     [Header("Attack config")]
     public float attackRate;
     private float nextAttack;
-
+    
+    [Header("AI config")] public float followDistance;
+    public float attackDistance;
+    public float loseDistance;
+    public float probability;
+    public GameObject[] pickUps;
+    
     public float searchAngel = 45f;
     enum ZombieStates
     {
@@ -17,7 +23,6 @@ public class Zombie : EnemyMovement
 
     private ZombieStates activeState;
 
-    // Start is called before the first frame update
     public override void StartAdditional()
     {
         ChangeState(ZombieStates.Patrol); // состояние зомби при старте игры Patrol(патрулирует)
@@ -29,7 +34,7 @@ public class Zombie : EnemyMovement
     //     Debug.Log("print");
     // }
 
-    public override void FUpdate()
+    void Update()
     {
         if (PlayerIsDead())
         {
@@ -119,19 +124,20 @@ public class Zombie : EnemyMovement
         switch (activeState) 
         {
             case ZombieStates.Follow:
-                SetDoMove(true);
-                SetDoFollow(true);
+                // _zombieMovement.enabled = false;
+                // SetDoMove(true);
+                // SetDoFollow(true);
                 break;
             case ZombieStates.Patrol:
-                SetDoMove(true);
-                SetDoFollow(false);
+                // SetDoMove(true);
+                // SetDoFollow(false);
                 break;
             // case ZombieStates.Move: // если активный шаг == Мув, то включить движение зомби 
             //     SetDoMove(true);
             //     break;
             case ZombieStates.Attack: // если активный шаг == Аттак, то отключить движение зомби 
-                SetDoMove(false);
-                StopMovement();
+                // SetDoMove(false);
+                // StopMovement();
                 break;
         } 
     }
@@ -143,6 +149,26 @@ public class Zombie : EnemyMovement
         CreatePickUp();
     }
    
+    public void CreatePickUp()
+    {
+        if (Chance())
+        {
+            {
+                Instantiate(pickUps[0], transform.position, Quaternion.identity);
+            }
+        }
+    }
+
+    bool Chance()
+    {
+        int chance = Random.Range(1, 100);
+        if (chance < probability)
+        {
+            return true;
+        }
+
+        return false;
+    }
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.blue;
