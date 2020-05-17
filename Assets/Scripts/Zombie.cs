@@ -3,7 +3,6 @@ using System;
 
 public class Zombie : EnemyMovement
 {
-    
     [Header("Attack config")]
     public float attackRate;
     private float nextAttack;
@@ -47,10 +46,6 @@ public class Zombie : EnemyMovement
         }
     }
 
-    public Vector2 GetDirectionVector2D(float angle)
-    {
-        return new Vector2(Mathf.Cos(angle * Mathf.Deg2Rad), Mathf.Sin(angle * Mathf.Deg2Rad)).normalized;
-    }
     void UpdateState()
     {
         if (GetPlayer() != null)
@@ -68,6 +63,7 @@ public class Zombie : EnemyMovement
                         RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, distance, layerMask);
                         if (hit.collider == null)
                         {
+                            Debug.Log("Follow");
                             ChangeState(ZombieStates.Follow);
                         }
                     }
@@ -94,10 +90,10 @@ public class Zombie : EnemyMovement
                  
                 case ZombieStates.Attack:
                     
-                    // if (distance > attackDistance)
-                    // {
-                    //     ChangeState(ZombieStates.Follow);
-                    // }
+                    if (distance > attackDistance)
+                    {
+                        ChangeState(ZombieStates.Follow);
+                    }
                     Rotate();
                     nextAttack -= Time.fixedDeltaTime;
                     if (nextAttack <= 0)
