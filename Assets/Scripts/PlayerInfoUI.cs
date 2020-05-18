@@ -6,7 +6,6 @@ public class PlayerInfoUI : MonoBehaviour
     public Player _player;
     public Slider healthSlider;
     
-   
     void Start()
     {
         _player.onHealthChanged += UpdateSlider;

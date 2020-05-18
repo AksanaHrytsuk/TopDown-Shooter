@@ -2,7 +2,6 @@
 
 public class MedicineChest : PickUp
 {
-    
     public float addHealth;
 
     public override void Apply()

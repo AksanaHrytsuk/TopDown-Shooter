@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Bullet : BaseClass
 {
-    // Start is called before the first frame update
     public override void StartAdditional()
     {
         
@@ -18,7 +14,7 @@ public class Bullet : BaseClass
 
     private void OnBecameInvisible()
     {
-        if (gameObject.activeSelf) // check if object was despawned
+        if (gameObject.activeSelf) // check if object was dispawned
         {
             Lean.Pool.LeanPool.Despawn(gameObject);
         }

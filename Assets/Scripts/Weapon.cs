@@ -41,13 +41,11 @@ public class Weapon : MonoBehaviour
         return _animator;
     }
     
-    // Start is called before the first frame update
     void Start()
     {
         _animator = GetComponentInChildren<Animator>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         Shoot();
