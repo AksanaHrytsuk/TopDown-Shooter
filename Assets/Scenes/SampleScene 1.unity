@@ -61043,7 +61043,7 @@ MonoBehaviour:
     file_cachedStartup: {fileID: 0}
     data_cachedStartup: 
     cacheStartup: 0
-  showNavGraphs: 0
+  showNavGraphs: 1
   showUnwalkableNodes: 1
   debugMode: 0
   debugFloor: 0
@@ -61102,7 +61102,7 @@ MonoBehaviour:
   heuristic: 2
   heuristicScale: 1
   threadCount: 1
-  maxFrameTime: 1
+  maxFrameTime: 10
   batchGraphUpdates: 0
   graphUpdateBatchingInterval: 0.2
   euclideanEmbedding:
@@ -63208,6 +63208,31 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2100130997535291444, guid: 4f5d34ea81a37564a95287a52ee88ae7,
+        type: 3}
+      propertyPath: alwaysDrawGizmos
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2100130997535291444, guid: 4f5d34ea81a37564a95287a52ee88ae7,
+        type: 3}
+      propertyPath: pickNextWaypointDist
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2100130997535291444, guid: 4f5d34ea81a37564a95287a52ee88ae7,
+        type: 3}
+      propertyPath: enableRotation
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3891029568143392018, guid: 4f5d34ea81a37564a95287a52ee88ae7,
+        type: 3}
+      propertyPath: drawGizmos
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413882981442026559, guid: 4f5d34ea81a37564a95287a52ee88ae7,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8265558075441843009, guid: 4f5d34ea81a37564a95287a52ee88ae7,
         type: 3}
       propertyPath: target
@@ -63267,6 +63292,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -44.076
+      objectReference: {fileID: 0}
+    - target: {fileID: 8301703983938696449, guid: 4f5d34ea81a37564a95287a52ee88ae7,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: -0.2136249
+      objectReference: {fileID: 0}
+    - target: {fileID: 8301703983938696449, guid: 4f5d34ea81a37564a95287a52ee88ae7,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: -0.26900664
+      objectReference: {fileID: 0}
+    - target: {fileID: 8301703983938696449, guid: 4f5d34ea81a37564a95287a52ee88ae7,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.6650002
       objectReference: {fileID: 0}
     - target: {fileID: 8301703983938696476, guid: 4f5d34ea81a37564a95287a52ee88ae7,
         type: 3}

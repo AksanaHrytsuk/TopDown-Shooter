@@ -569,8 +569,11 @@ namespace Pathfinding {
 		/// <param name="nextPosition">New position of the agent.</param>
 		/// <param name="nextRotation">New rotation of the agent. If #enableRotation is false then this parameter will be ignored.</param>
 		public virtual void FinalizeMovement (Vector3 nextPosition, Quaternion nextRotation) {
-			if (enableRotation) FinalizeRotation(nextRotation);
+			// if (enableRotation) FinalizeRotation(nextRotation);
+			Vector2 direction = nextPosition - transform.position;
+			transform.up = -direction;
 			FinalizePosition(nextPosition);
+			
 		}
 
 		void FinalizeRotation (Quaternion nextRotation) {
