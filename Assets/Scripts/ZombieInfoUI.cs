@@ -18,7 +18,6 @@ public class ZombieInfoUI : MonoBehaviour
 
     void UpdateSlider()
     {
-        Debug.Log("Update slider");
         _slider.value = _zombie.health;
     }
 

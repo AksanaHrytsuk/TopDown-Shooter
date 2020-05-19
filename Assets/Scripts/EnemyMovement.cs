@@ -103,7 +103,10 @@ public class EnemyMovement : BaseClass
     {
         if (GetRig() != null)
         {
-            GetRig().velocity = Vector2.zero;
+            //GetRig().velocity = Vector2.zero;
+            
+            // включает Freez Rotation по x y z
+            GetRig().constraints = RigidbodyConstraints2D.FreezeAll;
         }
     }
 
