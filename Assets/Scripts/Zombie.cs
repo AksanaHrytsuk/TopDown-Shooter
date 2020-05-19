@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-
+using Lean.Pool;
 
 public class Zombie : BaseClass
 {
@@ -154,7 +154,7 @@ public class Zombie : BaseClass
         if (Chance())
         {
             {
-                Instantiate(pickUps[0], transform.position, Quaternion.identity);
+                LeanPool.Spawn(pickUps[0], transform.position, Quaternion.identity);
             }
         }
     }
