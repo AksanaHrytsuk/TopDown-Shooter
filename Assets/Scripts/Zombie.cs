@@ -57,9 +57,11 @@ public class Zombie : BaseClass
                 case ZombieStates.Patrol: 
                     if (distance < followDistance)
                     {
-                        
+                        // направление от игрока к зомби
                         Vector3 direction = GetPlayer().transform.position - transform.position;
+                        // угол между двумя векторами 
                         float angel = Mathf.Abs(Vector3.Angle(direction, -transform.up));
+                        
                         LayerMask layerMask = LayerMask.GetMask("Walls");
                         Debug.Log("search angel");
 
@@ -186,7 +188,8 @@ public class Zombie : BaseClass
 
         Gizmos.color = Color.magenta;
         Vector3 lookDirection = -transform.up;
-        // Gizmos.DrawRay(transform.position, lookDirection * followDistance);
+        Gizmos.DrawRay(transform.position, lookDirection * followDistance);
+        Gizmos.color = Color.green;
         //Quaternion rotation = Quaternion.AngleAxis(searchAngel, Vector3.forward);
         Vector3 v1 = Quaternion.AngleAxis(searchAngel, Vector3.forward) * lookDirection;
         Vector3 v2 = Quaternion.AngleAxis(-searchAngel, Vector3.forward) * lookDirection;
