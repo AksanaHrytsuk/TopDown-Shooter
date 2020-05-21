@@ -26,14 +26,8 @@ public class Zombie : BaseClass
     public override void StartAdditional()
     {
         ChangeState(ZombieStates.Patrol); // состояние зомби при старте игры Patrol(патрулирует)
-        // onHealthChanged += PrintMessage;
     }
-
-    // void PrintMessage()
-    // {
-    //     Debug.Log("print");
-    // }
-
+    
     void Update()
     {
         if (PlayerIsDead())
@@ -61,15 +55,24 @@ public class Zombie : BaseClass
             {
                 
                 case ZombieStates.Patrol: 
-                    if (distance < followDistance) 
+                    if (distance < followDistance)
                     {
+                        
+                        Vector3 direction = GetPlayer().transform.position - transform.position;
+                        float angel = Mathf.Abs(Vector3.Angle(direction, -transform.up));
                         LayerMask layerMask = LayerMask.GetMask("Walls");
-                        Vector2 direction = GetPlayer().transform.position - transform.position;
-                        RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, distance, layerMask);
-                        if (hit.collider == null)
+                        Debug.Log("search angel");
+
+                        if (angel <= searchAngel)
                         {
-                            Debug.Log("Follow");
-                            ChangeState(ZombieStates.Follow);
+                            Debug.Log("pool reycast");
+                            RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, distance, layerMask);
+                            
+                            if (hit.collider == null)
+                            {
+                                Debug.Log("Follow");
+                                ChangeState(ZombieStates.Follow);
+                            }
                         }
                     }
                     break;
