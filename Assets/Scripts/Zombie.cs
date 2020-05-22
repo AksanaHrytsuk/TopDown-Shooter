@@ -5,7 +5,7 @@ public class Zombie : BaseClass
 {
     [Header("Attack config")]
     public float attackRate;
-    private float nextAttack;
+    public float searchAngel = 45f;
     
     [Header("AI config")] public float followDistance;
     public float attackDistance;
@@ -13,7 +13,7 @@ public class Zombie : BaseClass
     public float probability;
     public GameObject[] pickUps;
     
-    public float searchAngel = 45f;
+    private float nextAttack;
     enum ZombieStates
     {
         Patrol,

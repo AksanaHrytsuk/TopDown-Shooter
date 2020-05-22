@@ -546,18 +546,14 @@ MonoBehaviour:
   health: 10
   speed: 4
   damage: 10
+  attackRate: 2
+  searchAngel: 45
   followDistance: 2.5
   attackDistance: 1.7
   loseDistance: 6
-  distanceToPoint: 0.5
   probability: 100
-  patrolPoints:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   pickUps:
-  - {fileID: 8676510767360365883, guid: fe94ef11696a2aa809867aefb1523378, type: 3}
-  attackRate: 2
+  - {fileID: 7375393185121381043, guid: f9b3eb255d10a4cc0b45314843f09da3, type: 3}
 --- !u!1 &3303031163716796949
 GameObject:
   m_ObjectHideFlags: 0
