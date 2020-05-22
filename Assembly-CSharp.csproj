@@ -70,6 +70,7 @@
      <Compile Include="Assets\Lean\Pool\Scripts\LeanClassPool.cs" />
      <Compile Include="Assets\Lean\Pool\Scripts\LeanGameObjectPool.cs" />
      <Compile Include="Assets\Lean\Pool\Scripts\LeanPool.cs" />
+     <Compile Include="Assets\Scripts\Ammo.cs" />
      <Compile Include="Assets\Scripts\BaseClass.cs" />
      <Compile Include="Assets\Scripts\Bullet.cs" />
      <Compile Include="Assets\Scripts\CreatedToDie.cs" />

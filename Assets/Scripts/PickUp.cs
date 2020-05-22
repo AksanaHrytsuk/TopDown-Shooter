@@ -5,6 +5,8 @@ public class PickUp : MonoBehaviour
     private PlayerInfoUI _playerInfoUi;
     private Player _player;
     private LoadNextLevel _loadNextLevel;
+   
+    public Weapon Weapon { get; set; }
 
     public PlayerInfoUI GetPlayerUI()
     {
@@ -34,6 +36,7 @@ public class PickUp : MonoBehaviour
         _playerInfoUi = FindObjectOfType<PlayerInfoUI>();
         _player = FindObjectOfType<Player>();
         _loadNextLevel = FindObjectOfType<LoadNextLevel>();
+        Weapon = FindObjectOfType<Weapon>();
     }
 
    public virtual void Apply()

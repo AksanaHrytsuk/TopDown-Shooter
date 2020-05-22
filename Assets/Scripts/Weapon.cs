@@ -2,15 +2,21 @@
 using System.Collections.Generic;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using UnityEngine.UI;
+
 using Lean.Pool;
 public class Weapon : MonoBehaviour
 {
     [Header("Elements UI")]
     public GameObject bulletPrefab;
     public Transform shootPosition;
+    public Text ammo;
     
     [Header("Config parameters")]
     public float fireRate;
+
+    public int amountBullets;
+    public int maxAmountBullets;
    
     private float _nextFire;
     private Animator _animator;
@@ -49,6 +55,7 @@ public class Weapon : MonoBehaviour
     void Update()
     {
         Shoot();
+        ammo.text = "Ammo: " + amountBullets;
     }
 
     public  void Shoot()
@@ -58,6 +65,7 @@ public class Weapon : MonoBehaviour
             LeanPool.Spawn(bulletPrefab, shootPosition.position, transform.rotation);
             _nextFire = fireRate;
             _animator.SetTrigger("Shoot");
+            amountBullets--;
         }
         if (_nextFire > 0)
         {
@@ -67,6 +75,6 @@ public class Weapon : MonoBehaviour
 
     public virtual bool ShootPossibility()
     {
-        return (Input.GetButton("Fire1") && _nextFire <= 0 && _canShoot);
+        return (Input.GetButton("Fire1") && _nextFire <= 0 && _canShoot && amountBullets > 0);
     }
 }

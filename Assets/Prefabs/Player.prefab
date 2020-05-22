@@ -591,6 +591,8 @@ MonoBehaviour:
     type: 3}
   shootPosition: {fileID: 5738378532670610679}
   fireRate: 0.3
+  amountBullets: 20
+  maxAmountBullets: 50
 --- !u!1 &5738378532670610678
 GameObject:
   m_ObjectHideFlags: 0
