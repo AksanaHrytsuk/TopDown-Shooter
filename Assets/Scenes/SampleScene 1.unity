@@ -969,7 +969,7 @@ GameObject:
   - component: {fileID: 227647893}
   - component: {fileID: 227647892}
   - component: {fileID: 227647891}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: TilemapFurniture
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73339,7 +73339,7 @@ MonoBehaviour:
     file_cachedStartup: {fileID: 0}
     data_cachedStartup: 
     cacheStartup: 0
-  showNavGraphs: 0
+  showNavGraphs: 1
   showUnwalkableNodes: 1
   debugMode: 0
   debugFloor: 0
@@ -75645,6 +75645,10 @@ PrefabInstance:
     - target: {fileID: 499453846, guid: 633095515d8cf39eca8a321c09003ccc, type: 3}
       propertyPath: damage
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 499453846, guid: 633095515d8cf39eca8a321c09003ccc, type: 3}
+      propertyPath: health
+      value: 5000
       objectReference: {fileID: 0}
     - target: {fileID: 499453847, guid: 633095515d8cf39eca8a321c09003ccc, type: 3}
       propertyPath: ammo
