@@ -30,8 +30,8 @@ public class Zombie : BaseClass
 
     public override void StartAdditional()
     {
-        _aiDestinationSetter = FindObjectOfType<AIDestinationSetter>();
-        aiPath = FindObjectOfType<AIPath>();
+        _aiDestinationSetter = GetComponent<AIDestinationSetter>();
+        aiPath = GetComponent<AIPath>();
         ChangeState(ZombieStates.Patrol); // состояние зомби при старте игры Patrol(патрулирует)
     }
     
@@ -157,9 +157,10 @@ public class Zombie : BaseClass
     public override void Death()
     {
         base.Death();
+        Debug.Log(aiPath);
+        Destroy(this.aiPath);
+        Destroy(this._aiDestinationSetter);
         Destroy(this);
-        Destroy(aiPath);
-        Destroy(_aiDestinationSetter);
         CreatePickUp();
     }
    
