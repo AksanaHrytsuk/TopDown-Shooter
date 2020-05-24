@@ -1,7 +1,4 @@
 ﻿ using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Data;
 using UnityEngine;
 
 public class BaseClass : MonoBehaviour
@@ -82,7 +79,6 @@ public class BaseClass : MonoBehaviour
         _rigidbody2D = GetComponent<Rigidbody2D>();
     }
 
-    // Start is called before the first frame update
     void Start()
     {
         _player = FindObjectOfType<Player>();

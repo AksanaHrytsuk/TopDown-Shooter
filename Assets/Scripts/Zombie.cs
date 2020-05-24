@@ -5,7 +5,7 @@ public class Zombie : BaseClass
 {
     [Header("Attack config")]
     public float attackRate;
-    public float searchAngel = 45f;
+    public float searchAngel;
     
     [Header("AI config")] public float followDistance;
     public float attackDistance;
