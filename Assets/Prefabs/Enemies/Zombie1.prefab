@@ -123,13 +123,13 @@ MonoBehaviour:
   speed: 4
   damage: 10
   attackRate: 2
+  searchAngel: 45
   followDistance: 2.5
   attackDistance: 1.7
   loseDistance: 6
   probability: 100
   pickUps:
   - {fileID: 3199792505538048419, guid: 6c69f899a0d4b3b26bccaf3140a0a092, type: 3}
-  searchAngel: 45
 --- !u!114 &3891029568143392018
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -183,7 +183,7 @@ MonoBehaviour:
     m_Bits: 4294967295
   centerOffsetCompatibility: NaN
   orientation: 1
-  enableRotation: 1
+  enableRotation: 0
   targetCompatibility: {fileID: 0}
   maxAcceleration: -2.5
   rotationSpeed: 360
@@ -208,6 +208,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   target: {fileID: 0}
+  distanceToPoint: 0
+  patrolPoints: []
+  followPlayer: 0
 --- !u!114 &819873436
 MonoBehaviour:
   m_ObjectHideFlags: 0
