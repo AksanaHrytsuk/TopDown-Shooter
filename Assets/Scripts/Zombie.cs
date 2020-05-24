@@ -147,7 +147,8 @@ public class Zombie : BaseClass
                 // SetDoMove(true);
                 // SetDoFollow(false);
                 break;
-            case ZombieStates.Attack: // если активный шаг == Аттак, то отключить движение зомби 
+            case ZombieStates.Attack:
+                // если активный шаг == Аттак, то отключить движение зомби 
                 // SetDoMove(false);
                 // StopMovement();
                 break;
@@ -183,6 +184,15 @@ public class Zombie : BaseClass
         }
 
         return false;
+    }
+    
+    public void StopMovement()
+    {
+        if (GetRig() != null)
+        {
+            // включает Freez Rotation по x y z
+            GetRig().constraints = RigidbodyConstraints2D.FreezeAll;
+        }
     }
    
     private void OnDrawGizmosSelected()

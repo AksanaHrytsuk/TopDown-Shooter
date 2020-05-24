@@ -306,7 +306,7 @@ MonoBehaviour:
   attackRate: 2
   searchAngel: 45
   followDistance: 2.5
-  attackDistance: 1.7
+  attackDistance: 1.8
   loseDistance: 6
   probability: 100
   pickUps:

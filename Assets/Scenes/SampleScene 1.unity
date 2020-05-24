@@ -66888,7 +66888,7 @@ Tilemap:
       - {fileID: -5863527516043309086, guid: eeb0f6f3866d39f80b2b0179169bb693, type: 3}
       - {fileID: 5462605338289988509, guid: eeb0f6f3866d39f80b2b0179169bb693, type: 3}
       - {fileID: -440442676701968749, guid: eeb0f6f3866d39f80b2b0179169bb693, type: 3}
-      m_AnimationSpeed: 10.000001
+      m_AnimationSpeed: 10
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   m_TileAssetArray:
@@ -84125,6 +84125,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 40502593, guid: c10e0b35b78093103846467ca5375db5, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 40502593, guid: c10e0b35b78093103846467ca5375db5, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 40502593, guid: c10e0b35b78093103846467ca5375db5, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 632778873, guid: c10e0b35b78093103846467ca5375db5, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 140
+      objectReference: {fileID: 0}
+    - target: {fileID: 632778873, guid: c10e0b35b78093103846467ca5375db5, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -358
+      objectReference: {fileID: 0}
+    - target: {fileID: 632778875, guid: c10e0b35b78093103846467ca5375db5, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 679421108, guid: c10e0b35b78093103846467ca5375db5, type: 3}
       propertyPath: m_IsActive
       value: 0
