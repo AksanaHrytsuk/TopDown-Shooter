@@ -58,7 +58,8 @@ namespace Pathfinding {
 		/// <summary>Updates the AI's destination every frame</summary>
 		void Update ()
 		{
-			
+			// приследование Player. Player является таргетом
+			// иначе патрулировате по точкам 
 			if (target != null && ai != null && followPlayer)
 			{
 				ai.destination = target.position;

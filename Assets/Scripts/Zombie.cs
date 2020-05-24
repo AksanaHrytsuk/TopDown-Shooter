@@ -16,6 +16,7 @@ public class Zombie : BaseClass
     public GameObject[] pickUps;
    
     private AIDestinationSetter _aiDestinationSetter;
+    private AIPath aiPath;
    
     private float nextAttack;
     enum ZombieStates
@@ -30,6 +31,7 @@ public class Zombie : BaseClass
     public override void StartAdditional()
     {
         _aiDestinationSetter = FindObjectOfType<AIDestinationSetter>();
+        aiPath = FindObjectOfType<AIPath>();
         ChangeState(ZombieStates.Patrol); // состояние зомби при старте игры Patrol(патрулирует)
     }
     
@@ -74,10 +76,7 @@ public class Zombie : BaseClass
                     else if (distance > loseDistance) 
                     {
                         ChangeState(ZombieStates.Patrol);
-                    }
-
-                    Rotate();
-                    
+                    } 
                     break;
                 // case ZombieStates.Move: // если activeState == ZombieStates.Move , зомби движется в направлении игрока (Rotate()) И
                 //     if (distance < attackDistance) // если дистанция от зомби до игрока меньше или равна attackDistance, то активировать атаку у зомби 
@@ -159,6 +158,8 @@ public class Zombie : BaseClass
     {
         base.Death();
         Destroy(this);
+        Destroy(aiPath);
+        Destroy(_aiDestinationSetter);
         CreatePickUp();
     }
    
