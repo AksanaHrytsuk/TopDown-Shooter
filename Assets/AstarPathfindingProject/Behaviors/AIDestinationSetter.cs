@@ -16,6 +16,10 @@ namespace Pathfinding {
 	public class AIDestinationSetter : VersionedMonoBehaviour {
 		/// <summary>The object that the AI should move to</summary>
 		public Transform target;
+		public float distanceToPoint;
+		public Transform[] patrolPoints;
+		public bool followPlayer;
+
 		IAstarAI ai;
 
 		void OnEnable () {
@@ -27,13 +31,43 @@ namespace Pathfinding {
 			if (ai != null) ai.onSearchPath += Update;
 		}
 
+		private void ChangeDirection()
+		{
+			float distance = Vector2.Distance(transform.position, patrolPoints[0].transform.position);
+			if (distance < distanceToPoint)
+			{
+				ChangeArray();
+			}
+		}
+
+		private void ChangeArray()
+		{
+			Transform tmp = patrolPoints[0];
+			for (int i = 0; i < patrolPoints.Length - 1; i++)
+			{
+				patrolPoints[i] = patrolPoints[i + 1];
+			}
+
+			patrolPoints[patrolPoints.Length - 1] = tmp; // обращение к последнему элементу массива
+		}
+
 		void OnDisable () {
 			if (ai != null) ai.onSearchPath -= Update;
 		}
 
 		/// <summary>Updates the AI's destination every frame</summary>
-		void Update () {
-			if (target != null && ai != null) ai.destination = target.position;
+		void Update ()
+		{
+			
+			if (target != null && ai != null && followPlayer)
+			{
+				ai.destination = target.position;
+			}
+			else
+			{
+				ChangeDirection();
+				ai.destination = patrolPoints[0].position;
+			}
 		}
 	}
 }

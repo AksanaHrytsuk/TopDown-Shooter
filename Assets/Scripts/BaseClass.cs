@@ -1,5 +1,7 @@
-﻿ using System;
+﻿using System;
+using Pathfinding;
 using UnityEngine;
+
 
 public class BaseClass : MonoBehaviour
 {
@@ -18,7 +20,7 @@ public class BaseClass : MonoBehaviour
     private Collider2D _collider2D;
     private Animator _animator;
     private Weapon _weapon;
-    
+
     public Player GetPlayer()
     {
         return _player;

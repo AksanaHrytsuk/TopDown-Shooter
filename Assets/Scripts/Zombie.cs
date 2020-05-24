@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using Lean.Pool;
+using Pathfinding;
 
 public class Zombie : BaseClass
 {
@@ -7,12 +8,15 @@ public class Zombie : BaseClass
     public float attackRate;
     public float searchAngel;
     
+    
     [Header("AI config")] public float followDistance;
     public float attackDistance;
     public float loseDistance;
     public float probability;
     public GameObject[] pickUps;
-    
+   
+    private AIDestinationSetter _aiDestinationSetter;
+   
     private float nextAttack;
     enum ZombieStates
     {
@@ -25,6 +29,7 @@ public class Zombie : BaseClass
 
     public override void StartAdditional()
     {
+        _aiDestinationSetter = FindObjectOfType<AIDestinationSetter>();
         ChangeState(ZombieStates.Patrol); // состояние зомби при старте игры Patrol(патрулирует)
     }
     
@@ -54,28 +59,10 @@ public class Zombie : BaseClass
             switch (activeState)
             {
                 
-                case ZombieStates.Patrol: 
+                case ZombieStates.Patrol:
                     if (distance < followDistance)
                     {
-                        // направление от игрока к зомби
-                        Vector3 direction = GetPlayer().transform.position - transform.position;
-                        // угол между двумя векторами 
-                        float angel = Mathf.Abs(Vector3.Angle(direction, -transform.up));
-                        
-                        LayerMask layerMask = LayerMask.GetMask("Walls");
-                        Debug.Log("search angel");
-
-                        if (angel <= searchAngel)
-                        {
-                            Debug.Log("pool reycast");
-                            RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, distance, layerMask);
-                            
-                            if (hit.collider == null)
-                            {
-                                Debug.Log("Follow");
-                                ChangeState(ZombieStates.Follow);
-                            }
-                        }
+                        SeePlayer(distance);
                     }
                     break;
                 case  ZombieStates.Follow:
@@ -104,7 +91,7 @@ public class Zombie : BaseClass
                     {
                         ChangeState(ZombieStates.Follow);
                     }
-                    Rotate();
+                    //Rotate();
                     nextAttack -= Time.fixedDeltaTime;
                     if (nextAttack <= 0)
                     {
@@ -115,6 +102,28 @@ public class Zombie : BaseClass
                     break;
             }
         } 
+    }
+
+    private void SeePlayer(float distance)
+    {
+        // направление от игрока к зомби
+        Vector3 direction = GetPlayer().transform.position - transform.position;
+        // угол между двумя векторами 
+        float angel = Mathf.Abs(Vector3.Angle(direction, -transform.up));
+        
+        LayerMask layerMask = LayerMask.GetMask("Walls");
+        Debug.Log("search angel");
+
+        if (angel <= searchAngel)
+        {
+            Debug.Log("pool reycast");
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, distance, layerMask);
+                            
+            if (hit.collider == null)
+            {
+                ChangeState(ZombieStates.Follow);
+            }
+        }
     }
 
     private bool PlayerIsDead()
@@ -129,17 +138,16 @@ public class Zombie : BaseClass
         switch (activeState) 
         {
             case ZombieStates.Follow:
+                _aiDestinationSetter.followPlayer = true;
                 // _zombieMovement.enabled = false;
                 // SetDoMove(true);
                 // SetDoFollow(true);
                 break;
             case ZombieStates.Patrol:
+                _aiDestinationSetter.followPlayer = false;
                 // SetDoMove(true);
                 // SetDoFollow(false);
                 break;
-            // case ZombieStates.Move: // если активный шаг == Мув, то включить движение зомби 
-            //     SetDoMove(true);
-            //     break;
             case ZombieStates.Attack: // если активный шаг == Аттак, то отключить движение зомби 
                 // SetDoMove(false);
                 // StopMovement();
@@ -174,6 +182,7 @@ public class Zombie : BaseClass
 
         return false;
     }
+   
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.blue;
