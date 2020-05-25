@@ -37,6 +37,8 @@ public class LoadNextLevel : MonoBehaviour
          string name = SceneManager.GetActiveScene().name;
          SceneManager.LoadScene(name);
      }
+     
+     
 
      public void RestartMenu()
      {
