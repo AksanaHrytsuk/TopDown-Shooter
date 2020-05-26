@@ -8,11 +8,13 @@ public class LoadNextLevel : MonoBehaviour
     public Player player;
     //[HideInInspector]
     public GameObject image;
+    //[HideInInspector]
     public GameObject image1;
     [HideInInspector]
     public GameObject playerInfo;
     
     public bool startGame;
+    
 
     private void Awake()
     {
@@ -47,6 +49,7 @@ public class LoadNextLevel : MonoBehaviour
          {
              image1.SetActive(true);
              Time.timeScale = 0;
+             
          }
      }
 
@@ -62,6 +65,5 @@ public class LoadNextLevel : MonoBehaviour
      {
          image.SetActive(true);
          //playerInfo.SetActive(false);
-         
      }
 }

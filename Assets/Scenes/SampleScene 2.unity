@@ -16539,6 +16539,12 @@ Transform:
   m_Father: {fileID: 943619096}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &746681614 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9021065988514093932, guid: c10e0b35b78093103846467ca5375db5,
+    type: 3}
+  m_PrefabInstance: {fileID: 1292239426}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &747436911
 GameObject:
   m_ObjectHideFlags: 0
@@ -20465,6 +20471,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 679421108, guid: c10e0b35b78093103846467ca5375db5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1896021897, guid: c10e0b35b78093103846467ca5375db5, type: 3}
       propertyPath: player
       value: 
@@ -20473,6 +20483,14 @@ PrefabInstance:
       propertyPath: playerInfo
       value: 
       objectReference: {fileID: 1292395511}
+    - target: {fileID: 1896021897, guid: c10e0b35b78093103846467ca5375db5, type: 3}
+      propertyPath: startGame
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1896021897, guid: c10e0b35b78093103846467ca5375db5, type: 3}
+      propertyPath: image1
+      value: 
+      objectReference: {fileID: 746681614}
     - target: {fileID: 1105310219203665473, guid: c10e0b35b78093103846467ca5375db5,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -20578,10 +20596,25 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3407422327371333278, guid: c10e0b35b78093103846467ca5375db5,
+        type: 3}
+      propertyPath: m_Text
+      value: "\u0418\u0433\u0440\u0430\u0442\u044C"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5668462520504269328, guid: c10e0b35b78093103846467ca5375db5,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Resume
+      objectReference: {fileID: 0}
     - target: {fileID: 7888407012130534752, guid: c10e0b35b78093103846467ca5375db5,
         type: 3}
       propertyPath: m_Name
       value: Scene Loader
+      objectReference: {fileID: 0}
+    - target: {fileID: 9021065988514093932, guid: c10e0b35b78093103846467ca5375db5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c10e0b35b78093103846467ca5375db5, type: 3}
