@@ -111,11 +111,11 @@ public class Zombie : BaseClass
         float angel = Mathf.Abs(Vector3.Angle(direction, -transform.up));
         
         LayerMask layerMask = LayerMask.GetMask("Walls");
-        Debug.Log("search angel");
+        // Debug.Log("search angel");
 
         if (angel <= searchAngel)
         {
-            Debug.Log("pool reycast");
+           // Debug.Log("pool reycast");
             RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, distance, layerMask);
                             
             if (hit.collider == null)

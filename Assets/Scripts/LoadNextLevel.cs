@@ -61,8 +61,7 @@ public class LoadNextLevel : MonoBehaviour
      public void RestartMenu()
      {
          image.SetActive(true);
-         image1.SetActive(true);
-         playerInfo.SetActive(false);
+         //playerInfo.SetActive(false);
          
      }
 }
