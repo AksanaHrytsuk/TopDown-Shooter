@@ -19,7 +19,7 @@ public class LoadNextLevel : MonoBehaviour
         player = FindObjectOfType<Player>();
         if (!startGame)
         {
-            Instractions();
+            Instructions();
             image.SetActive(false);
             player.ifDeath += RestartMenu;
         }
@@ -41,7 +41,7 @@ public class LoadNextLevel : MonoBehaviour
          SceneManager.LoadScene(name);
      }
 
-     private void Instractions()
+     private void Instructions()
      {
          if (!startGame)
          {
