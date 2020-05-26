@@ -6,8 +6,9 @@ public class LoadNextLevel : MonoBehaviour
 {
     [HideInInspector]
     public Player player;
-    [HideInInspector]
+    //[HideInInspector]
     public GameObject image;
+    public GameObject image1;
     [HideInInspector]
     public GameObject playerInfo;
     
@@ -15,8 +16,10 @@ public class LoadNextLevel : MonoBehaviour
 
     private void Awake()
     {
+        player = FindObjectOfType<Player>();
         if (!startGame)
         {
+            Instractions();
             image.SetActive(false);
             player.ifDeath += RestartMenu;
         }
@@ -37,12 +40,29 @@ public class LoadNextLevel : MonoBehaviour
          string name = SceneManager.GetActiveScene().name;
          SceneManager.LoadScene(name);
      }
-     
-     
 
+     private void Instractions()
+     {
+         if (!startGame)
+         {
+             image1.SetActive(true);
+             Time.timeScale = 0;
+         }
+     }
+
+     public void Resume()
+     {
+         if (!startGame)
+         {
+             image1.SetActive(false);
+             Time.timeScale = 1;
+         }
+     }
      public void RestartMenu()
      {
          image.SetActive(true);
+         image1.SetActive(true);
          playerInfo.SetActive(false);
+         
      }
 }
