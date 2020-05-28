@@ -89,6 +89,7 @@
      <Compile Include="Assets\Scripts\PlayerScripts\Player1.cs" />
      <Compile Include="Assets\Scripts\PlayerScripts\PlayerMovement.cs" />
      <Compile Include="Assets\Scripts\Shooter.cs" />
+     <Compile Include="Assets\Scripts\Shop.cs" />
      <Compile Include="Assets\Scripts\Weapon.cs" />
      <Compile Include="Assets\Scripts\Zombie.cs" />
      <Compile Include="Assets\Scripts\ZombieInfoUI.cs" />
