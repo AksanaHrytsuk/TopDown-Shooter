@@ -1,9 +1,11 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Shop : MonoBehaviour
 {
+    private Player player;
     public GameObject shopPanel;
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -11,19 +13,27 @@ public class Shop : MonoBehaviour
         if (collision.CompareTag("Characters"))
         {
            shopPanel.SetActive(true);
+           Time.timeScale = 0;
+           player.enabled = false;
         }
     }
-    
-    // Start is called before the first frame update
+
+    private void Awake()
+    {
+        player = FindObjectOfType<Player>();
+    }
+
     void Start()
     {
         shopPanel.SetActive(false);
-        shopPanel = FindObjectOfType<GameObject>();
     }
-
-    // Update is called once per frame
-    void Update()
+    
+    public void Resume()
     {
-        
+            player.enabled = true;
+            shopPanel.SetActive(false);
+            Time.timeScale = 1;
     }
+    
+    
 }

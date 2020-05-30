@@ -19,8 +19,7 @@ public class Ammo : PickUp
         }
         else
         {
-            Weapon.amountBullets = addAmmo;
-
+            Weapon.amountBullets = Weapon.maxAmountBullets;
         }
     }
 }

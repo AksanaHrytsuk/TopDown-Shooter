@@ -21,6 +21,7 @@ public class LoadNextLevel : MonoBehaviour
         player = FindObjectOfType<Player>();
         if (!startGame)
         {
+            player.enabled = false;
             Instructions();
             image.SetActive(false);
             player.ifDeath += RestartMenu;
@@ -57,6 +58,7 @@ public class LoadNextLevel : MonoBehaviour
      {
          if (!startGame)
          {
+             player.enabled = true;
              image1.SetActive(false);
              Time.timeScale = 1;
          }
