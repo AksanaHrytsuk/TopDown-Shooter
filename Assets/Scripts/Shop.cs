@@ -45,7 +45,6 @@ public class Shop : MonoBehaviour
         {
             medicineChest.Apply();
             player.Money1 -= hpPrice;
-            Debug.Log(player.Money1);
             moneyUi.text = "$ " + player.Money1;
         }
     }
