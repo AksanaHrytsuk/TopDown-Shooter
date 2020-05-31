@@ -14,3 +14,4 @@ public class Money : PickUp
         money.text = "$ " + GetPlayer().Money1;
     }
 }
+     

@@ -6,19 +6,21 @@ public class LoadNextLevel : MonoBehaviour
 {
     [HideInInspector]
     public Player player;
-    //[HideInInspector]
+    [HideInInspector]
     public GameObject image;
-    //[HideInInspector]
+    [HideInInspector]
     public GameObject image1;
     [HideInInspector]
     public GameObject playerInfo;
     
     public bool startGame;
-    
 
+    private Weapon weapon;
     private void Awake()
     {
         player = FindObjectOfType<Player>();
+        weapon = FindObjectOfType<Weapon>();
+        
         if (!startGame)
         {
             player.enabled = false;
@@ -48,9 +50,10 @@ public class LoadNextLevel : MonoBehaviour
      {
          if (!startGame)
          {
+             weapon.enabled = false;
+             player.enabled = false;
              image1.SetActive(true);
              Time.timeScale = 0;
-             
          }
      }
 
@@ -58,6 +61,7 @@ public class LoadNextLevel : MonoBehaviour
      {
          if (!startGame)
          {
+             weapon.enabled = true;
              player.enabled = true;
              image1.SetActive(false);
              Time.timeScale = 1;
@@ -66,6 +70,5 @@ public class LoadNextLevel : MonoBehaviour
      public void RestartMenu()
      {
          image.SetActive(true);
-         //playerInfo.SetActive(false);
      }
 }
